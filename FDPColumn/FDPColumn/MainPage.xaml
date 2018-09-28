@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FDPColumn"
+             x:Class="FDPColumn.MainPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Text="General" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Large" x:Name="patManLbl"/>
+        <Label Grid.Row="0" Grid.Column="1" Text="Apndx" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Large" x:Name="apndxLbl"/>
+
+        <Label Grid.Row="1" Grid.Column="0" Text="PEDS" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Large" x:Name="pedsLbl"/>
+        <Label Grid.Row="1" Grid.Column="1" Text="Resp" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Large" x:Name="respLbl"/>
+
+        <Label Grid.Row="2" Grid.Column="0" Text="OB" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Large" x:Name="obLbl"/>
+        <Label Grid.Row="2" Grid.Column="1" Text="Cardiac" VerticalTextAlignment ="Center" HorizontalTextAlignment="Center" FontSize="Large" x:Name="cardLbl"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Text="Med." VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Large" x:Name="medLbl"/>
+        <Label Grid.Row="3" Grid.Column="1" Text="Trauma" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Large" x:Name="traumaLbl"/>
+    </Grid>
+
+</ContentPage>
