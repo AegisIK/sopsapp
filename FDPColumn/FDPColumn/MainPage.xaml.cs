@@ -45,7 +45,7 @@ namespace FDPColumn
         {
 
             Label[] labels = new Label[8] { patManLbl, apndxLbl, cardLbl, obLbl, traumaLbl, pedsLbl, respLbl, medLbl };
-            string[] labelNames = new string[8] { "General Patient Management", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
+            string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
 
             //so, I was trying to put this in a for loop, but it wouldnt work, it would attach the last iteration of tap to all of the labels, took me a week, still couldn't figure it out, so
             //now, we're just gonna hard code it and solve it later if I have the time

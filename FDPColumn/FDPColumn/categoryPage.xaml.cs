@@ -13,25 +13,34 @@ namespace FDPColumn
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class categoryPage : ContentPage
     {
-        
+        string categoryPageName;
+        IDictionary<string, int> dictionary = new Dictionary<string, int>();
         public categoryPage(string myText)
         {
+            categoryPageName = myText;
+            //Create the listview and populate it
+            #region create listview
+            NavigationPage.SetHasNavigationBar(this, false);
             var metrics = DeviceDisplay.ScreenMetrics;
             double headerHeight = metrics.Height;
 
-            string[] labelNames = new string[8] { "General Patient Management", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
+            string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
             string[] procedures;
             Color headerColor;
             #region check mytext
+
+            
             if (myText == labelNames[0])
             {
                 procedures = CategoryClasses.patMan.components;
                 headerColor = MainPage.patManLblColor;
+                dictionary = DictionaryClasses.generalDictionary.dictionary;
             }
             else if (myText == labelNames[1])
             {
                 procedures = CategoryClasses.apndx.components;
                 headerColor = MainPage.apndxLblColor;
+                
             }
             else if (myText == labelNames[2])
             {
@@ -70,7 +79,7 @@ namespace FDPColumn
             Label header = new Label
             {
                 Text = myText,
-                HeightRequest = headerHeight / 25,
+                HeightRequest = headerHeight / 20,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 HorizontalTextAlignment = TextAlignment.Center,
                 FontSize = headerHeight/30, //something to test with when moving device resolutions
@@ -92,13 +101,14 @@ namespace FDPColumn
                 // (Argument of DataTemplate constructor is called for 
                 //      each item; it must return a Cell derivative.)
                 HasUnevenRows = true,
-                
+
                 ItemTemplate = new DataTemplate(() =>
                 {
                     // Create views with bindings for displaying each property.
                     Label procedureLabel = new Label();
                     procedureLabel.SetBinding(Label.TextProperty, ".");
                     procedureLabel.FontSize = 20;
+                    
 
 
                     // Return an assembled ViewCell.
@@ -124,9 +134,9 @@ namespace FDPColumn
                         }
                     };
                 })
-            };
+               };
 
-
+            listView.ItemSelected += (s, e) => procedureTapped(s, e);
             // Build the page.
             this.Content = new StackLayout
             {
@@ -136,7 +146,16 @@ namespace FDPColumn
                     listView
                 }
             };
+            #endregion
 
+            //Set up swipe recognition in header
+            
         }
+
+        async void procedureTapped(object sender, SelectedItemChangedEventArgs e)
+        {
+            await Navigation.PushAsync(new imagePage(dictionary[e.SelectedItem.ToString()]));
+        }
+
     }               
 }
