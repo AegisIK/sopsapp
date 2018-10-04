@@ -34,7 +34,7 @@ namespace FDPColumn
             {
                 procedures = CategoryClasses.patMan.components;
                 headerColor = MainPage.patManLblColor;
-                dictionary = DictionaryClasses.generalDictionary.dictionary;
+                dictionary = CategoryClasses.generalDictionary.dictionary;
             }
             else if (myText == labelNames[1])
             {

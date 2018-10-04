@@ -16,7 +16,7 @@ namespace FDPColumn
 		{
 			InitializeComponent ();
             moilabel.Text = pageNumber.ToString();
-            pageImage.Source = "waterfront.jpg";
+            pageImage.Source = ImageSource.FromFile("1.jpg");
         }
 	}
 }
