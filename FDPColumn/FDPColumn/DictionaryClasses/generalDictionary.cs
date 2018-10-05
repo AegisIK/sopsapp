@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FDPColumn.CategoryClasses
+namespace FDPColumn.DictionaryClasses
 {
     public static class generalDictionary
     {

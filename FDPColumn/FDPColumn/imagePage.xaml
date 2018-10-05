@@ -4,10 +4,7 @@
              x:Class="FDPColumn.imagePage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand"
-                   x:Name="moilabel"/>
+            <Label x:Name="header"></Label>
             <Image x:Name="pageImage"></Image>
         </StackLayout>
     </ContentPage.Content>

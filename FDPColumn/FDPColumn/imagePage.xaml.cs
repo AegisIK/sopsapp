@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace FDPColumn
 {
@@ -15,8 +16,20 @@ namespace FDPColumn
 		public imagePage (int pageNumber)
 		{
 			InitializeComponent ();
-            moilabel.Text = pageNumber.ToString();
-            pageImage.Source = ImageSource.FromFile("1.jpg");
+
+            NavigationPage.SetHasNavigationBar(this, false);
+
+            var metrics = DeviceDisplay.ScreenMetrics;
+            double screenHeight = metrics.Height;
+
+            header.Text = pageNumber.ToString();
+            header.HeightRequest = screenHeight / 20;
+            header.HorizontalOptions = LayoutOptions.FillAndExpand;
+            header.HorizontalTextAlignment = TextAlignment.Center;
+            header.FontSize = screenHeight / 30;
+            
+
+            pageImage.Source = ImageSource.FromFile(pageNumber + ".jpg");
         }
 	}
 }

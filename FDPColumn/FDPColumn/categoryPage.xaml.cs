@@ -22,7 +22,7 @@ namespace FDPColumn
             #region create listview
             NavigationPage.SetHasNavigationBar(this, false);
             var metrics = DeviceDisplay.ScreenMetrics;
-            double headerHeight = metrics.Height;
+            double screenHeight = metrics.Height;
 
             string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
             string[] procedures;
@@ -34,7 +34,7 @@ namespace FDPColumn
             {
                 procedures = CategoryClasses.patMan.components;
                 headerColor = MainPage.patManLblColor;
-                dictionary = CategoryClasses.generalDictionary.dictionary;
+                dictionary = DictionaryClasses.generalDictionary.dictionary;
             }
             else if (myText == labelNames[1])
             {
@@ -79,10 +79,10 @@ namespace FDPColumn
             Label header = new Label
             {
                 Text = myText,
-                HeightRequest = headerHeight / 20,
+                HeightRequest = screenHeight / 20,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 HorizontalTextAlignment = TextAlignment.Center,
-                FontSize = headerHeight/30, //something to test with when moving device resolutions
+                FontSize = screenHeight/30, //something to test with when moving device resolutions
                 BackgroundColor = headerColor
             };
 
