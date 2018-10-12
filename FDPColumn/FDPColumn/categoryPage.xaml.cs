@@ -154,7 +154,7 @@ namespace FDPColumn
 
         async void procedureTapped(object sender, SelectedItemChangedEventArgs e)
         {
-            await Navigation.PushAsync(new imagePage(dictionary[e.SelectedItem.ToString()]));
+            await Navigation.PushAsync(new ImagePage(dictionary[e.SelectedItem.ToString()]));
         }
 
     }               

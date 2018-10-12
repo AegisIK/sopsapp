@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FDPColumn.imagePage">
+             x:Class="FDPColumn.ImagePage">
     <ContentPage.Content>
         <StackLayout>
-            <Label x:Name="header"></Label>
-            <Image x:Name="pageImage"></Image>
+            <Label x:Name="header"/>
+            <Image x:Name="image"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

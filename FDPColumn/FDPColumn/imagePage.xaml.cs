@@ -11,25 +11,37 @@ using Xamarin.Essentials;
 namespace FDPColumn
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class imagePage : ContentPage
+	public partial class ImagePage : ContentPage
 	{
-		public imagePage (int pageNumber)
+		public ImagePage (int pageNumber)
 		{
 			InitializeComponent ();
 
             NavigationPage.SetHasNavigationBar(this, false);
-
             var metrics = DeviceDisplay.ScreenMetrics;
             double screenHeight = metrics.Height;
 
-            header.Text = pageNumber.ToString();
-            header.HeightRequest = screenHeight / 20;
+            string page = pageNumber.ToString() + ".jpg";
+
+
+
+            header.Text = page;
             header.HorizontalOptions = LayoutOptions.FillAndExpand;
             header.HorizontalTextAlignment = TextAlignment.Center;
+            header.HeightRequest = screenHeight / 20;
             header.FontSize = screenHeight / 30;
-            
 
-            pageImage.Source = ImageSource.FromFile(pageNumber + ".jpg");
+            image.Source = page;
+
+
+            var pinchGesture = new PinchGestureRecognizer();
+            pinchGesture.PinchUpdated += (s, e) => {
+                // Handle the pinch
+            };
+
+            image.GestureRecognizers.Add(pinchGesture);
+
+
         }
 	}
 }
