@@ -3,8 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local ="clr-namespace:FDPColumn"
              x:Class="FDPColumn.ImagePage">
-    <StackLayout>
-        <Label x:Name="header"/>
-        <Image x:Name="image"/>
+    <StackLayout Padding="10,40,10,10" >
+        <!--For ZOOMING the image-->
+        <Grid>
+            <local:PinchAndPanContainer>
+                <local:PinchAndPanContainer.Content>
+                    <Image Source="1.jpg" />
+                </local:PinchAndPanContainer.Content>
+            </local:PinchAndPanContainer>
+        </Grid>
     </StackLayout>
 </ContentPage>
