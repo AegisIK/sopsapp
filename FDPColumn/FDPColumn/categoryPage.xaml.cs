@@ -136,7 +136,7 @@ namespace FDPColumn
                 })
                };
 
-            listView.ItemSelected += (s, e) => procedureTapped(s, e);
+            listView.ItemTapped += (s, e) => procedureTapped(s, e);
             // Build the page.
             this.Content = new StackLayout
             {
@@ -152,9 +152,9 @@ namespace FDPColumn
             
         }
 
-        async void procedureTapped(object sender, SelectedItemChangedEventArgs e)
+        async void procedureTapped(object sender, ItemTappedEventArgs e)
         {
-            await Navigation.PushAsync(new ImagePage(dictionary[e.SelectedItem.ToString()]));
+            await Navigation.PushAsync(new ImagePage(dictionary[e.Item.ToString()], categoryPageName));
         }
 
     }               

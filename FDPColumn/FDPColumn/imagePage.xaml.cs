@@ -13,7 +13,7 @@ namespace FDPColumn
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ImagePage : ContentPage
 	{
-        public ImagePage(int pageNumber)
+        public ImagePage(int pageNumber, string categoryName)
         {
             //InitializeComponent();
 
@@ -25,19 +25,61 @@ namespace FDPColumn
 
             string page = "_" + pageNumber.ToString() + ".jpg";
 
-            /*Label header = new Label
+            string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
+            Color headerColor;
+            #region check categoryName
+
+
+            if (categoryName == labelNames[0])
             {
-                Text = myText,
+                headerColor = MainPage.patManLblColor;
+            }
+            else if (categoryName == labelNames[1])
+            {
+                headerColor = MainPage.apndxLblColor;
+            }
+            else if (categoryName == labelNames[2])
+            {
+                headerColor = MainPage.cardLblColor;
+            }
+            else if (categoryName == labelNames[3])
+            {
+                headerColor = MainPage.obLblColor;
+            }
+            else if (categoryName == labelNames[4])
+            {
+                headerColor = MainPage.traumaLblColor;
+            }
+            else if (categoryName == labelNames[5])
+            {
+                headerColor = MainPage.pedsLblColor;
+            }
+            else if (categoryName == labelNames[6])
+            {
+                headerColor = MainPage.respLblColor;
+            }
+            else if (categoryName == labelNames[7])
+            {
+                headerColor = MainPage.medLblColor;
+            }
+            else
+            { return; }
+            #endregion
+
+            Label header = new Label
+            {
+                Text = pageNumber.ToString(),
                 HeightRequest = screenHeight / 20,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 HorizontalTextAlignment = TextAlignment.Center,
                 FontSize = screenHeight / 30, //something to test with when moving device resolutions
                 BackgroundColor = headerColor
-            };*/
+            };
 
             Content = new StackLayout
             {
                 Children = {
+                    header,
                     new PinchAndPanContainer
                     {
                         Content = new Image {Source = ImageSource.FromFile(NumberToWords(pageNumber))}
