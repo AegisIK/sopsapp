@@ -8,6 +8,7 @@ namespace FDPColumn.DictionaryClasses
     {
         public static IDictionary<string, int> dictionary = new Dictionary<string, int>()
         {
+            {"Introduction", 1},
             {"EMS Scopes of Practice", 2},
             {"General Patient Assessment/IMC", 3},
             {"Emergency drug alternatives", 5},
