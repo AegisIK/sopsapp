@@ -10,16 +10,16 @@ using Xamarin.Essentials;
 
 namespace FDPColumn
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ImagePage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class ImagePage : ContentPage
+    {
         public ImagePage(int pageNumber, string categoryName)
         {
             InitializeComponent();
 
 
 
-            NavigationPage.SetHasNavigationBar(this, false); 
+            NavigationPage.SetHasNavigationBar(this, false);
             var metrics = DeviceDisplay.ScreenMetrics;//xamarin essentials may not work for lower level api's.
             double screenHeight = metrics.Height;
 
@@ -82,7 +82,7 @@ namespace FDPColumn
             header.HorizontalTextAlignment = TextAlignment.Center;
             header.FontSize = screenHeight / 30;
             header.BackgroundColor = headerColor;
-            
+
             image.Source = ImageSource.FromFile(imageString);
 
             /*var grid = new Grid { };
@@ -115,39 +115,6 @@ namespace FDPColumn
                     
                 }
             };*/
-        }
-
-
-        static string NumberToWords(int number)
-        {
-            string words = "";
-            if( (number/100) > 0)
-            {
-                words += "hundred";
-            }
-
-            string[] unitMap = new string[20] {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
-                "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
-            string[] tensMap = new string[10] { "zero", "ten", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety" };
-
-
-            if (number > 0)
-            {
-                if (number < 20)
-                {
-                    words += unitMap[number];
-                }
-                else
-                {
-                    words += tensMap[number / 10];
-                    if ((number % 10) != 0)
-                    {
-                        words += " " + unitMap[number % 10];
-                    }
-                }
-            }
-
-            return words;
         }
     }
 }
