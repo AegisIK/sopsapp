@@ -15,7 +15,7 @@ namespace FDPColumn
 	{
         public ImagePage(int pageNumber, string categoryName)
         {
-            //InitializeComponent();
+            InitializeComponent();
 
 
 
@@ -23,7 +23,7 @@ namespace FDPColumn
             var metrics = DeviceDisplay.ScreenMetrics;//xamarin essentials may not work for lower level api's.
             double screenHeight = metrics.Height;
 
-            string page = "_" + pageNumber.ToString() + ".jpg";
+            string imageString = "p" + pageNumber.ToString() + ".jpg";
 
             string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
             Color headerColor;
@@ -66,26 +66,55 @@ namespace FDPColumn
             { return; }
             #endregion
 
-            Label header = new Label
-            {
-                Text = pageNumber.ToString(),
-                HeightRequest = screenHeight / 20,
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                HorizontalTextAlignment = TextAlignment.Center,
-                FontSize = screenHeight / 30, //something to test with when moving device resolutions
-                BackgroundColor = headerColor
-            };
+            /* Label header = new Label
+             {
+                 Text = pageNumber.ToString(),
+                 HeightRequest = screenHeight / 20,
+                 HorizontalOptions = LayoutOptions.FillAndExpand,
+                 HorizontalTextAlignment = TextAlignment.Center,
+                 FontSize = screenHeight / 30, //something to test with when moving device resolutions
+                 BackgroundColor = headerColor
+             };*/
 
-            Content = new StackLayout
+            header.Text = categoryName;
+            header.HeightRequest = screenHeight / 20;
+            header.HorizontalOptions = LayoutOptions.FillAndExpand;
+            header.HorizontalTextAlignment = TextAlignment.Center;
+            header.FontSize = screenHeight / 30;
+            header.BackgroundColor = headerColor;
+            
+            image.Source = ImageSource.FromFile(imageString);
+
+            /*var grid = new Grid { };
+            grid.RowDefinitions.Add(new RowDefinition { });
+            grid.RowDefinitions.Add(new RowDefinition { });
+            grid.Children.Add(header, 0, 0);
+            grid.Children.Add(new PinchAndPanContainer { Content = new Image { Source = ImageSource.FromFile(NumberToWords(pageNumber)) } }, 0, 1);*/
+
+            /*Content = new StackLayout
             {
                 Children = {
-                    header,
-                    new PinchAndPanContainer
+                    new StackLayout
                     {
-                        Content = new Image {Source = ImageSource.FromFile(NumberToWords(pageNumber))}
+                        Padding = new Thickness (10, 40, 10, 10),
+                        Children =
+                        { 
+                            header,
+                            new ScrollView
+                            {
+                                new PinchAndPanContainer
+                                {
+
+                                }
+                            }
+                            
+                        }
+
                     }
+                    //grid
+                    
                 }
-            };
+            };*/
         }
 
 

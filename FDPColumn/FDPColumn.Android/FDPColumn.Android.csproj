@@ -121,10 +121,10 @@
     <AndroidResource Include="Resources\drawable\four.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\eight.jpg" />
+    <AndroidResource Include="Resources\drawable\p8.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\five.jpg" />
+    <AndroidResource Include="Resources\drawable\p5.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\two.jpg" />
