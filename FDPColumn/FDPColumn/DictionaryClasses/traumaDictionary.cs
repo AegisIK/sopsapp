@@ -20,9 +20,12 @@ namespace FDPColumn.DictionaryClasses
             {"Spine trauma/Equipment removal guidelines", 49},
             {"Multiple Patient Incidents", 51},
             {"START & JumpSTART", 52},
-            {"Stroke – Transport algorithm", 35},
-            {"Seizures", 37},
-            {"Shock differential – Hypovolemic / Septic", 38}
+            {"Hazardous Materials Incidents", 53},
+            {"Chemical Agents", 54},
+            {"Active Shooter Response", 55},
+            {"Widespread disease outbreak", 57},
+            {"Abuse and Maltreatment: Domestic/Sexual/Elder", 58 },
+            {"Trauma in pregnancy", 59}
         };
     }
 }

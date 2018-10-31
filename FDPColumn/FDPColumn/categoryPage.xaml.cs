@@ -40,37 +40,43 @@ namespace FDPColumn
             {
                 procedures = CategoryClasses.apndx.components;
                 headerColor = MainPage.apndxLblColor;
-                
+                dictionary = DictionaryClasses.apndxDictionary.dictionary;
             }
             else if (myText == labelNames[2])
             {
                 procedures = CategoryClasses.card.components;
                 headerColor = MainPage.cardLblColor;
+                dictionary = DictionaryClasses.cardDictionary.dictionary;
             }
             else if (myText == labelNames[3])
             {
                 procedures = CategoryClasses.ob.components;
                 headerColor = MainPage.obLblColor;
+                dictionary = DictionaryClasses.obDictionary.dictionary;
             }
             else if (myText == labelNames[4])
             {
                 procedures = CategoryClasses.trauma.components;
                 headerColor = MainPage.traumaLblColor;
+                dictionary = DictionaryClasses.traumaDictionary.dictionary;
             }
             else if (myText == labelNames[5])
             {
                 procedures = CategoryClasses.peds.components;
                 headerColor = MainPage.pedsLblColor;
+                dictionary = DictionaryClasses.pedsDictionary.dictionary;
             }
             else if (myText == labelNames[6])
             {
                 procedures = CategoryClasses.resp.components;
                 headerColor = MainPage.respLblColor;
+                dictionary = DictionaryClasses.respDictionary.dictionary;
             }
             else if (myText == labelNames[7])
             {
                 procedures = CategoryClasses.med.components;
                 headerColor = MainPage.medLblColor;
+                dictionary = DictionaryClasses.medDictionary.dictionary;
             }
             else
             { return; }
