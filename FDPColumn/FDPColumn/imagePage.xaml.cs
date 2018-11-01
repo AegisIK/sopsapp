@@ -11,12 +11,12 @@ using Xamarin.Essentials;
 namespace FDPColumn
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ImagePage : ContentPage
+    public partial class ImagePage : CarouselPage
     {
         public ImagePage(int pageNumber, string categoryName)
         {
             InitializeComponent();
-
+            ItemsSource = ImagePageModel.All;
 
 
             NavigationPage.SetHasNavigationBar(this, false);
@@ -76,45 +76,14 @@ namespace FDPColumn
                  BackgroundColor = headerColor
              };*/
 
-            header.Text = categoryName;
-            header.HeightRequest = screenHeight / 20;
+            //header.Text = categoryName;
+            /*header.HeightRequest = screenHeight / 20;
             header.HorizontalOptions = LayoutOptions.FillAndExpand;
             header.HorizontalTextAlignment = TextAlignment.Center;
             header.FontSize = screenHeight / 30;
-            header.BackgroundColor = headerColor;
+            header.BackgroundColor = headerColor;*/
+            //image.Source = ImageSource.FromFile(imageString);
 
-            image.Source = ImageSource.FromFile(imageString);
-
-            /*var grid = new Grid { };
-            grid.RowDefinitions.Add(new RowDefinition { });
-            grid.RowDefinitions.Add(new RowDefinition { });
-            grid.Children.Add(header, 0, 0);
-            grid.Children.Add(new PinchAndPanContainer { Content = new Image { Source = ImageSource.FromFile(NumberToWords(pageNumber)) } }, 0, 1);*/
-
-            /*Content = new StackLayout
-            {
-                Children = {
-                    new StackLayout
-                    {
-                        Padding = new Thickness (10, 40, 10, 10),
-                        Children =
-                        { 
-                            header,
-                            new ScrollView
-                            {
-                                new PinchAndPanContainer
-                                {
-
-                                }
-                            }
-                            
-                        }
-
-                    }
-                    //grid
-                    
-                }
-            };*/
         }
     }
 }

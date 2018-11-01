@@ -1,21 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local ="clr-namespace:FDPColumn"
              x:Class="FDPColumn.ImagePage">
-    <StackLayout>
-        <!--For ZOOMING the image-->
-        <StackLayout Orientation="Horizontal">
-            <Label x:Name="header">
-                
-            </Label>
-        </StackLayout>
-        <ScrollView>
-            <local:PinchAndPanContainer>
-                <local:PinchAndPanContainer.Content>
-                    <Image x:Name="image" />
-                </local:PinchAndPanContainer.Content>
-            </local:PinchAndPanContainer>
-        </ScrollView>
-    </StackLayout>
-</ContentPage>
+    <CarouselPage.ItemTemplate>
+        <DataTemplate>
+            <ContentPage>
+                <StackLayout>
+                    <!--For ZOOMING the image-->
+                <!--    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding category}">
+
+                        </Label>
+                    </StackLayout>
+                    <ScrollView>
+                        <local:PinchAndPanContainer>
+                            <local:PinchAndPanContainer.Content>
+                                <Image>
+                                    <Image.Source>
+                                        <FileImageSource File="{Binding imageReference}"/>
+                                    </Image.Source>
+                                </Image>
+                            </local:PinchAndPanContainer.Content>
+                        </local:PinchAndPanContainer>
+                    </ScrollView>-->
+                    <Label Text="{Binding Category}" HorizontalOptions="Center"/>
+                    <Label Text="{Binding ImageReference}" HorizontalOptions="Center"/>
+                </StackLayout>
+            </ContentPage>
+            
+        </DataTemplate>
+        
+    </CarouselPage.ItemTemplate>
+    
+</CarouselPage>
