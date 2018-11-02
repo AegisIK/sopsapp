@@ -16,6 +16,8 @@ namespace FDPColumn
         private double _width;
         private double _height;
 
+        bool isZoomedOut;
+
         // In this class we are Initialization the Gesture Recognizers for the particular property
         public PinchAndPanContainer()
         {
@@ -88,6 +90,10 @@ namespace FDPColumn
                 // Store the translation delta's of the wrapped user interface element.
                 xOffset = Content.TranslationX;
                 yOffset = Content.TranslationY;
+                if(Scale > 5)
+                {
+                    
+                }
             }
         }
 

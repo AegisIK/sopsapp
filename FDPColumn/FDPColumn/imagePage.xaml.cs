@@ -18,7 +18,8 @@ namespace FDPColumn
             InitializeComponent();
             ItemsSource = ImagePageModel.All;
 
-
+           
+            IsEnabled = false;
             NavigationPage.SetHasNavigationBar(this, false);
             var metrics = DeviceDisplay.ScreenMetrics;//xamarin essentials may not work for lower level api's.
             double screenHeight = metrics.Height;

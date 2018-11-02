@@ -7,25 +7,28 @@
         <DataTemplate>
             <ContentPage>
                 <StackLayout>
-                    <!--For ZOOMING the image-->
-                <!--    <StackLayout Orientation="Horizontal">
-                        <Label Text="{Binding category}">
-
-                        </Label>
+                    <StackLayout>
+                        <Label Text="{Binding Category}"/>
                     </StackLayout>
+                    <!--For ZOOMING the image-->
                     <ScrollView>
-                        <local:PinchAndPanContainer>
+                        <local:PinchAndPanContainer x:Name="container">
                             <local:PinchAndPanContainer.Content>
                                 <Image>
                                     <Image.Source>
-                                        <FileImageSource File="{Binding imageReference}"/>
+                                        <FileImageSource File="{Binding ImageReference}"/>
                                     </Image.Source>
                                 </Image>
                             </local:PinchAndPanContainer.Content>
                         </local:PinchAndPanContainer>
-                    </ScrollView>-->
-                    <Label Text="{Binding Category}" HorizontalOptions="Center"/>
-                    <Label Text="{Binding ImageReference}" HorizontalOptions="Center"/>
+                    </ScrollView>
+                    <!--<Label Text="{Binding Category}" HorizontalOptions="Center"/>
+                    <Image>
+                        <Image.Source>
+                            <FileImageSource File="{Binding ImageReference}"/>
+                        </Image.Source>
+                    </Image>
+                    <Label Text="{Binding ImageReference}" HorizontalOptions="Center"/>-->
                 </StackLayout>
             </ContentPage>
             
