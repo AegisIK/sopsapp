@@ -16,7 +16,7 @@ namespace FDPColumn
         private double _width;
         private double _height;
 
-        bool isZoomedOut;
+
 
         // In this class we are Initialization the Gesture Recognizers for the particular property
         public PinchAndPanContainer()

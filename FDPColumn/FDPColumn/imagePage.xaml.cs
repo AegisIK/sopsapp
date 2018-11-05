@@ -11,15 +11,15 @@ using Xamarin.Essentials;
 namespace FDPColumn
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ImagePage : CarouselPage
+    public partial class ImagePage : ContentPage
     {
         public ImagePage(int pageNumber, string categoryName)
         {
             InitializeComponent();
-            ItemsSource = ImagePageModel.All;
+            //ItemsSource = ImagePageModel.All;
+            //carouselView.ItemsSource = ImagePageModel.All;
 
            
-            IsEnabled = false;
             NavigationPage.SetHasNavigationBar(this, false);
             var metrics = DeviceDisplay.ScreenMetrics;//xamarin essentials may not work for lower level api's.
             double screenHeight = metrics.Height;
