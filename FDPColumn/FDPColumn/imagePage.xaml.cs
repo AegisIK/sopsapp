@@ -16,10 +16,17 @@ namespace FDPColumn
         public ImagePage(int pageNumber, string categoryName)
         {
             InitializeComponent();
-            //ItemsSource = ImagePageModel.All;
-            //carouselView.ItemsSource = ImagePageModel.All;
 
-           
+
+            var names = new List<string>
+            {
+                "1", "2", "3", "4"
+            };
+
+
+            MainCarousel.ItemsSource = names;
+
+
             NavigationPage.SetHasNavigationBar(this, false);
             var metrics = DeviceDisplay.ScreenMetrics;//xamarin essentials may not work for lower level api's.
             double screenHeight = metrics.Height;

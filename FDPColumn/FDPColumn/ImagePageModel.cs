@@ -9,9 +9,9 @@ namespace FDPColumn
     public class ImagePageModel
     {
 
-        public ObservableCollection<Image> All { get; set; }
+        public static ObservableCollection<Image> All { get; set; }
 
-        public ImagePageModel()
+        static ImagePageModel()
         {
 
             All = new ObservableCollection<Image>{
