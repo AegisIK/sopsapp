@@ -13,25 +13,28 @@ namespace FDPColumn
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ImagePage : ContentPage
     {
+        public bool testbool = false;
         public ImagePage(int pageNumber, string categoryName)
         {
             InitializeComponent();
 
-
             var names = new List<string>
             {
-                "1", "2", "3", "4"
+                "What's", "In", "A", "Name", "?"
+
             };
 
-
-            MainCarousel.ItemsSource = names;
-
+            ImagePageModel model = new ImagePageModel();
+            MainCarousel.ItemsSource = model.All;
+            
 
             NavigationPage.SetHasNavigationBar(this, false);
             var metrics = DeviceDisplay.ScreenMetrics;//xamarin essentials may not work for lower level api's.
             double screenHeight = metrics.Height;
 
-            string imageString = "p" + pageNumber.ToString() + ".jpg";
+            
+
+            
 
             string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
             Color headerColor;
@@ -74,6 +77,12 @@ namespace FDPColumn
             { return; }
             #endregion
 
+            header.Text = categoryName;
+            header.HeightRequest = screenHeight / 20;
+            header.HorizontalOptions = LayoutOptions.FillAndExpand;
+            header.HorizontalTextAlignment = TextAlignment.Center;
+            header.FontSize = screenHeight / 30;
+            header.BackgroundColor = headerColor;
             /* Label header = new Label
              {
                  Text = pageNumber.ToString(),

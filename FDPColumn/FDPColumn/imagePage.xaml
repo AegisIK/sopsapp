@@ -3,18 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local ="clr-namespace:FDPColumn"
              x:Class="FDPColumn.ImagePage"
-             xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions">
+             xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView">
 
     <StackLayout>
-      <Label Text="Carousel View"></Label>
+        <Label x:Name="header"></Label>
         <!--For ZOOMING the image-->
-        <!--<cv:CarouselView x:Name="MainCarousel">
+        <cv:CarouselView x:Name="MainCarousel">
             <cv:CarouselView.ItemTemplate>
                 <DataTemplate>
-                    <!--<StackLayout>
-                        <Label Text="{Binding Category}"/>
+                    <StackLayout>
                         <ScrollView>
-                            <local:PinchAndPanContainer x:Name="container">
+                            <local:PinchAndPanContainer>
                                 <local:PinchAndPanContainer.Content>
                                     <Image>
                                         <Image.Source>
@@ -26,18 +25,12 @@
                             </local:PinchAndPanContainer>
                         </ScrollView>
                     </StackLayout>
-                  <Label Text ="{Binding .}" FontSize ="60"></Label>
-                    
+
                 </DataTemplate>
             </cv:CarouselView.ItemTemplate>
-        </cv:CarouselView>-->
-        <!--<Label Text="{Binding Category}" HorizontalOptions="Center"/>
-                    <Image>
-                        <Image.Source>
-                            <FileImageSource File="{Binding ImageReference}"/>
-                        </Image.Source>
-                    </Image>
-                    <Label Text="{Binding ImageReference}" HorizontalOptions="Center"/>-->
+        </cv:CarouselView>
+
+
     </StackLayout>
 
 
