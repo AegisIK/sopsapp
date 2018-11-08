@@ -13,7 +13,7 @@ namespace FDPColumn
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ImagePage : ContentPage
     {
-        public bool testbool = false;
+        public static bool zoomedOut = true;
         public ImagePage(int pageNumber, string categoryName)
         {
             InitializeComponent();
@@ -33,7 +33,14 @@ namespace FDPColumn
             double screenHeight = metrics.Height;
 
             
-
+            if(zoomedOut == true)
+            {
+                MainCarousel.IsEnabled = true;
+            }
+            else
+            {
+                MainCarousel.IsEnabled = false;
+            }
             
 
             string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
@@ -102,5 +109,16 @@ namespace FDPColumn
             //image.Source = ImageSource.FromFile(imageString);
 
         }
+
+        public void disableSwipe()
+        {
+            MainCarousel.IsEnabled = false;
+        }
+
+        public void enableSwipe()
+        {
+            MainCarousel.IsEnabled = true;
+        }
+
     }
 }

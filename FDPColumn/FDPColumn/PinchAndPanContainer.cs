@@ -50,6 +50,8 @@ namespace FDPColumn
                 startScale = Content.Scale;
                 Content.AnchorX = 0;
                 Content.AnchorY = 0;
+
+                
             }
 
             if (e.Status == GestureStatus.Running)
@@ -90,9 +92,18 @@ namespace FDPColumn
                 // Store the translation delta's of the wrapped user interface element.
                 xOffset = Content.TranslationX;
                 yOffset = Content.TranslationY;
-                if(Scale > 5)
+                if(Content.Scale == 1)
                 {
-                    
+                    /*ImagePage.zoomedOut = true;
+                    ImagePage parent = (ImagePage)this.Parent;
+                    parent.testMethod();*/
+                    ImagePageModel imageMode = new ImagePageModel();
+                    imageMode.enableSwipe();
+                }
+                else
+                {
+                    ImagePageModel imageMode = new ImagePageModel();
+                    imageMode.disableSwipe();
                 }
             }
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Linq;
 
 using Xamarin.Forms;
 namespace FDPColumn
@@ -38,6 +39,26 @@ namespace FDPColumn
 
                 All.Add(new ImagePageModel { category = "Same Test", imageReference = string.Format("p{0}.jpg", i) });
             }*/
+        }
+
+        public void disableSwipe()
+        {
+            ImagePage currPage;
+
+
+            int index = Application.Current.MainPage.Navigation.NavigationStack.Count - 1;
+
+            currPage = (ImagePage)Application.Current.MainPage.Navigation.NavigationStack[index];
+            currPage.disableSwipe();
+        }
+        
+        public void enableSwipe()
+        {
+            ImagePage currPage;
+
+            int index = Application.Current.MainPage.Navigation.NavigationStack.Count - 1;
+            currPage = (ImagePage)Application.Current.MainPage.Navigation.NavigationStack[index];
+            currPage.enableSwipe();
         }
     }
 }
