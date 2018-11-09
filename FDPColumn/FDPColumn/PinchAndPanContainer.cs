@@ -16,7 +16,7 @@ namespace FDPColumn
         private double _width;
         private double _height;
 
-
+        ImagePageModel imageMode = new ImagePageModel();
 
         // In this class we are Initialization the Gesture Recognizers for the particular property
         public PinchAndPanContainer()
@@ -51,6 +51,8 @@ namespace FDPColumn
                 Content.AnchorX = 0;
                 Content.AnchorY = 0;
 
+
+                imageMode.disableSwipe();
                 
             }
 
@@ -94,15 +96,11 @@ namespace FDPColumn
                 yOffset = Content.TranslationY;
                 if(Content.Scale == 1)
                 {
-                    /*ImagePage.zoomedOut = true;
-                    ImagePage parent = (ImagePage)this.Parent;
-                    parent.testMethod();*/
-                    ImagePageModel imageMode = new ImagePageModel();
+                    
                     imageMode.enableSwipe();
                 }
                 else
                 {
-                    ImagePageModel imageMode = new ImagePageModel();
                     imageMode.disableSwipe();
                 }
             }

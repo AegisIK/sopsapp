@@ -23,14 +23,14 @@ namespace FDPColumn
                 "What's", "In", "A", "Name", "?"
 
             };
-
+            NavigationPage.SetHasNavigationBar(this, false);
+            var metrics = DeviceDisplay.ScreenMetrics;//xamarin essentials may not work for lower level api's.
+            double screenHeight = metrics.Height;
             ImagePageModel model = new ImagePageModel();
             MainCarousel.ItemsSource = model.All;
             
 
-            NavigationPage.SetHasNavigationBar(this, false);
-            var metrics = DeviceDisplay.ScreenMetrics;//xamarin essentials may not work for lower level api's.
-            double screenHeight = metrics.Height;
+            
 
             
             if(zoomedOut == true)

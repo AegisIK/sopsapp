@@ -8,7 +8,7 @@
     <StackLayout>
         <Label x:Name="header"></Label>
         <!--For ZOOMING the image-->
-        <cv:CarouselView x:Name="MainCarousel">
+        <!--<cv:CarouselView x:Name="MainCarousel">
             <cv:CarouselView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout>
@@ -28,7 +28,30 @@
 
                 </DataTemplate>
             </cv:CarouselView.ItemTemplate>
-        </cv:CarouselView>
+        </cv:CarouselView>-->
+
+        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <local:PinchAndPanContainer>
+                <local:PinchAndPanContainer.Content>
+                    <cv:CarouselView x:Name="MainCarousel">
+                        <cv:CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <local:PinchAndPanContainer>
+                                    <local:PinchAndPanContainer.Content>
+                                        <Image>
+                                            <Image.Source>
+                                                <FileImageSource File="{Binding ImageReference}"/>
+                                            </Image.Source>
+                                        </Image>
+                                    </local:PinchAndPanContainer.Content>
+                                </local:PinchAndPanContainer>
+                                
+                            </DataTemplate>
+                        </cv:CarouselView.ItemTemplate>
+                    </cv:CarouselView>
+                </local:PinchAndPanContainer.Content>
+            </local:PinchAndPanContainer>
+        </ScrollView>
 
 
     </StackLayout>
