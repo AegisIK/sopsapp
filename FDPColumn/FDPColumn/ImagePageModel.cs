@@ -2,34 +2,33 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Linq;
 
 using Xamarin.Forms;
 namespace FDPColumn
 {
     public class ImagePageModel
     {
-        public string Category { get; set; }
-        public string ImageReference { get; set; }
 
-        public static IList<ImagePageModel> All { get; set; }
+        public ObservableCollection<Image> All { get; set; }
 
-        static ImagePageModel()
+        public ImagePageModel()
         {
 
-            All = new ObservableCollection<ImagePageModel>{
-                new ImagePageModel
+            All = new ObservableCollection<Image>{
+                new Image
                 {
-                    Category = "1",
+                    Category = "Resp",
                     ImageReference = "p1.jpg"
                 },
-                new ImagePageModel
+                new Image
                 {
-                    Category = "2",
+                    Category = "OB",
                     ImageReference = "p2.jpg"
                 },
-                new ImagePageModel
+                new Image
                 {
-                    Category ="3",
+                    Category ="General",
                     ImageReference = "p3.jpg"
                 }
 
@@ -40,6 +39,26 @@ namespace FDPColumn
 
                 All.Add(new ImagePageModel { category = "Same Test", imageReference = string.Format("p{0}.jpg", i) });
             }*/
+        }
+
+        public void disableSwipe()
+        {
+            ImagePage currPage;
+
+
+            int index = Application.Current.MainPage.Navigation.NavigationStack.Count - 1;
+
+            currPage = (ImagePage)Application.Current.MainPage.Navigation.NavigationStack[index];
+            currPage.disableSwipe();
+        }
+        
+        public void enableSwipe()
+        {
+            ImagePage currPage;
+
+            int index = Application.Current.MainPage.Navigation.NavigationStack.Count - 1;
+            currPage = (ImagePage)Application.Current.MainPage.Navigation.NavigationStack[index];
+            currPage.enableSwipe();
         }
     }
 }

@@ -14,6 +14,7 @@ namespace FDPColumn.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;

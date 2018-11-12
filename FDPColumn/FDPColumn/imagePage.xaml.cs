@@ -11,20 +11,37 @@ using Xamarin.Essentials;
 namespace FDPColumn
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ImagePage : CarouselPage
+    public partial class ImagePage : ContentPage
     {
+        public static bool zoomedOut = true;
         public ImagePage(int pageNumber, string categoryName)
         {
             InitializeComponent();
-            ItemsSource = ImagePageModel.All;
 
-           
-            IsEnabled = false;
+            var names = new List<string>
+            {
+                "What's", "In", "A", "Name", "?"
+
+            };
             NavigationPage.SetHasNavigationBar(this, false);
             var metrics = DeviceDisplay.ScreenMetrics;//xamarin essentials may not work for lower level api's.
             double screenHeight = metrics.Height;
+            ImagePageModel model = new ImagePageModel();
+            MainCarousel.ItemsSource = model.All;
+            
 
-            string imageString = "p" + pageNumber.ToString() + ".jpg";
+            
+
+            
+            if(zoomedOut == true)
+            {
+                MainCarousel.IsEnabled = true;
+            }
+            else
+            {
+                MainCarousel.IsEnabled = false;
+            }
+            
 
             string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
             Color headerColor;
@@ -67,6 +84,12 @@ namespace FDPColumn
             { return; }
             #endregion
 
+            header.Text = categoryName;
+            header.HeightRequest = screenHeight / 20;
+            header.HorizontalOptions = LayoutOptions.FillAndExpand;
+            header.HorizontalTextAlignment = TextAlignment.Center;
+            header.FontSize = screenHeight / 30;
+            header.BackgroundColor = headerColor;
             /* Label header = new Label
              {
                  Text = pageNumber.ToString(),
@@ -86,5 +109,16 @@ namespace FDPColumn
             //image.Source = ImageSource.FromFile(imageString);
 
         }
+
+        public void disableSwipe()
+        {
+            MainCarousel.IsEnabled = false;
+        }
+
+        public void enableSwipe()
+        {
+            MainCarousel.IsEnabled = true;
+        }
+
     }
 }

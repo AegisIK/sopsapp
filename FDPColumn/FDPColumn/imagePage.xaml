@@ -1,39 +1,60 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local ="clr-namespace:FDPColumn"
-             x:Class="FDPColumn.ImagePage">
-    <CarouselPage.ItemTemplate>
-        <DataTemplate>
-            <ContentPage>
-                <StackLayout>
+             x:Class="FDPColumn.ImagePage"
+             xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView">
+
+    <StackLayout>
+        <Label x:Name="header"></Label>
+        <!--For ZOOMING the image-->
+        <!--<cv:CarouselView x:Name="MainCarousel">
+            <cv:CarouselView.ItemTemplate>
+                <DataTemplate>
                     <StackLayout>
-                        <Label Text="{Binding Category}"/>
+                        <ScrollView>
+                            <local:PinchAndPanContainer>
+                                <local:PinchAndPanContainer.Content>
+                                    <Image>
+                                        <Image.Source>
+                                            <FileImageSource File="{Binding ImageReference}"/>
+                                        </Image.Source>
+                                    </Image>
+
+                                </local:PinchAndPanContainer.Content>
+                            </local:PinchAndPanContainer>
+                        </ScrollView>
                     </StackLayout>
-                    <!--For ZOOMING the image-->
-                    <ScrollView>
-                        <local:PinchAndPanContainer x:Name="container">
-                            <local:PinchAndPanContainer.Content>
-                                <Image>
-                                    <Image.Source>
-                                        <FileImageSource File="{Binding ImageReference}"/>
-                                    </Image.Source>
-                                </Image>
-                            </local:PinchAndPanContainer.Content>
-                        </local:PinchAndPanContainer>
-                    </ScrollView>
-                    <!--<Label Text="{Binding Category}" HorizontalOptions="Center"/>
-                    <Image>
-                        <Image.Source>
-                            <FileImageSource File="{Binding ImageReference}"/>
-                        </Image.Source>
-                    </Image>
-                    <Label Text="{Binding ImageReference}" HorizontalOptions="Center"/>-->
-                </StackLayout>
-            </ContentPage>
-            
-        </DataTemplate>
-        
-    </CarouselPage.ItemTemplate>
-    
-</CarouselPage>
+
+                </DataTemplate>
+            </cv:CarouselView.ItemTemplate>
+        </cv:CarouselView>-->
+
+        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <local:PinchAndPanContainer>
+                <local:PinchAndPanContainer.Content>
+                    <cv:CarouselView x:Name="MainCarousel">
+                        <cv:CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <local:PinchAndPanContainer>
+                                    <local:PinchAndPanContainer.Content>
+                                        <Image>
+                                            <Image.Source>
+                                                <FileImageSource File="{Binding ImageReference}"/>
+                                            </Image.Source>
+                                        </Image>
+                                    </local:PinchAndPanContainer.Content>
+                                </local:PinchAndPanContainer>
+                                
+                            </DataTemplate>
+                        </cv:CarouselView.ItemTemplate>
+                    </cv:CarouselView>
+                </local:PinchAndPanContainer.Content>
+            </local:PinchAndPanContainer>
+        </ScrollView>
+
+
+    </StackLayout>
+
+
+</ContentPage>
