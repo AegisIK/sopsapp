@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using Xamarin.Forms;
+using Xamarin.Essentials;
 
 namespace FDPColumn
 {
@@ -13,40 +14,25 @@ namespace FDPColumn
         double xOffset = 0;
         double yOffset = 0;
 
-        private double _width;
-        private double _height;
+        ScreenMetrics metrics = new ScreenMetrics();
 
-        bool isZoomedOut;
-
-        // In this class we are Initialization the Gesture Recognizers for the particular property
         public PinchAndPanContainer()
         {
             PinchGestureRecognizer pinchGesture = new PinchGestureRecognizer();
             pinchGesture.PinchUpdated += PinchGesture_PinchUpdated;
             GestureRecognizers.Add(pinchGesture);
 
-            //Rises the OnPanUpdated Event
             var panGesture = new PanGestureRecognizer();
             panGesture.PanUpdated += OnPanUpdated;
             GestureRecognizers.Add(panGesture);
         }
-        protected override void OnSizeAllocated(double width, double height)
-        {
-            base.OnSizeAllocated(width, height);
-
-            _width = width;
-            _height = height;
-        }
 
         private void PinchGesture_PinchUpdated(object sender, PinchGestureUpdatedEventArgs e)
         {
-            /* Storing the current Scale Factor of both Horizontal and Vertical Orientations with Anchor X an Anchor         Y This defines the Centralization of any image to the particular Orientations. */
-
             if (e.Status == GestureStatus.Started)
             {
-                // We Store the current scale factor applied to the wrapped user interface element,
+                // Store the current scale factor applied to the wrapped user interface element,
                 // and zero the components for the center point of the translate transform.
-
                 startScale = Content.Scale;
                 Content.AnchorX = 0;
                 Content.AnchorY = 0;
@@ -72,8 +58,7 @@ namespace FDPColumn
                 double deltaHeight = Height / (Content.Height * startScale);
                 double originY = (e.ScaleOrigin.Y - deltaY) * deltaHeight;
 
-                //With the Above X-Pixel coordinate and Y-Pixel coordinate we can calculate the Width and Height 
-                // calculate the transformed element pixel coordinates.
+                // Calculate the transformed element pixel coordinates.
                 double targetX = xOffset - (originX * Content.Width) * (currentScale - startScale);
                 double targetY = yOffset - (originY * Content.Height) * (currentScale - startScale);
 
@@ -90,10 +75,6 @@ namespace FDPColumn
                 // Store the translation delta's of the wrapped user interface element.
                 xOffset = Content.TranslationX;
                 yOffset = Content.TranslationY;
-                if(Scale > 5)
-                {
-                    
-                }
             }
         }
 
@@ -108,22 +89,19 @@ namespace FDPColumn
             {
                 case GestureStatus.Running:
                     // Translate and ensure we don't pan beyond the wrapped user interface element bounds.
-
                     double newX = (e.TotalX * Scale) + xOffset;
                     double newY = (e.TotalY * Scale) + yOffset;
 
                     double width = (Content.Width * Content.Scale);
                     double height = (Content.Height * Content.Scale);
 
-                    bool canMoveX = width > _width;
-                    bool canMoveY = height > _height;
-
-                    // In the Below Code we r Pinching  the Image for the Particular Corner with MoveX and MoveY  interface    element bounds.
+                    bool canMoveX = width > metrics.Width;
+                    bool canMoveY = height > metrics.Height;
 
                     if (canMoveX)
                     {
-                        double minX = (width - (_width / 2)) * -1;
-                        double maxX = Math.Min(_width / 2, width / 2);
+                        double minX = (width - (metrics.Width / 2)) * -1;
+                        double maxX = Math.Min(metrics.Width / 2, width / 2);
 
                         if (newX < minX)
                         {
@@ -142,8 +120,8 @@ namespace FDPColumn
 
                     if (canMoveY)
                     {
-                        double minY = (height - (_height / 2)) * -1;
-                        double maxY = Math.Min(_height / 2, height / 2);
+                        double minY = (height - (metrics.Height / 2)) * -1;
+                        double maxY = Math.Min(metrics.Height / 2, height / 2);
 
                         if (newY < minY)
                         {
@@ -163,9 +141,9 @@ namespace FDPColumn
                     Content.TranslationX = newX;
                     Content.TranslationY = newY;
                     break;
+
                 case GestureStatus.Completed:
                     // Store the translation applied during the pan
-                    // here we r finally panning the particular image 
                     xOffset = Content.TranslationX;
                     yOffset = Content.TranslationY;
                     break;
