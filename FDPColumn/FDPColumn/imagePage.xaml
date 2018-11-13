@@ -45,12 +45,16 @@
                                         </Image>
                                     </local:PinchAndPanContainer.Content>
                                 </local:PinchAndPanContainer>
-                                
+
+
+
                             </DataTemplate>
                         </cv:CarouselView.ItemTemplate>
                     </cv:CarouselView>
                 </local:PinchAndPanContainer.Content>
             </local:PinchAndPanContainer>
+                    
+
         </ScrollView>
 
 

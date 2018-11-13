@@ -16,13 +16,15 @@ namespace FDPColumn
 
         ScreenMetrics metrics = new ScreenMetrics();
 
+        ImagePageModel model = new ImagePageModel();
+
         public PinchAndPanContainer()
         {
             PinchGestureRecognizer pinchGesture = new PinchGestureRecognizer();
             pinchGesture.PinchUpdated += PinchGesture_PinchUpdated;
             GestureRecognizers.Add(pinchGesture);
 
-            var panGesture = new PanGestureRecognizer();
+            PanGestureRecognizer panGesture = new PanGestureRecognizer();
             panGesture.PanUpdated += OnPanUpdated;
             GestureRecognizers.Add(panGesture);
         }
@@ -68,6 +70,7 @@ namespace FDPColumn
 
                 // Apply scale factor.
                 Content.Scale = currentScale;
+
             }
 
             if (e.Status == GestureStatus.Completed)
@@ -82,7 +85,11 @@ namespace FDPColumn
         {
             if (Content.Scale == 1)
             {
-                return;
+                if(e.TotalX > 100)
+                {
+                    model.Swiped(SwipeDirection.Right);
+                    return;
+                }  
             }
 
             switch (e.StatusType)
@@ -95,7 +102,7 @@ namespace FDPColumn
                     double width = (Content.Width * Content.Scale);
                     double height = (Content.Height * Content.Scale);
 
-                    bool canMoveX = width > metrics.Width;
+                    bool canMoveX = width > metrics.Width;//something to do with the massive space right of the picture
                     bool canMoveY = height > metrics.Height;
 
                     if (canMoveX)
@@ -149,5 +156,6 @@ namespace FDPColumn
                     break;
             }
         }
+
     }
 }

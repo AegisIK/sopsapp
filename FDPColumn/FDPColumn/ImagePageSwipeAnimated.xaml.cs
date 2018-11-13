@@ -11,37 +11,15 @@ using Xamarin.Essentials;
 namespace FDPColumn
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ImagePage : ContentPage
+    public partial class ImagePageSwipeAnimated : ContentPage
     {
-        public static bool zoomedOut = true;
-        public ImagePage(int pageNumber, string categoryName)
+        public ImagePageSwipeAnimated(int pageNumber, string categoryName)
         {
             InitializeComponent();
 
-            var names = new List<string>
-            {
-                "What's", "In", "A", "Name", "?"
-
-            };
             NavigationPage.SetHasNavigationBar(this, false);
             var metrics = DeviceDisplay.ScreenMetrics;//xamarin essentials may not work for lower level api's.
             double screenHeight = metrics.Height;
-            ImagePageModel model = new ImagePageModel();
-            MainCarousel.ItemsSource = model.All;
-            
-
-            
-
-            
-            if(zoomedOut == true)
-            {
-                MainCarousel.IsEnabled = true;
-            }
-            else
-            {
-                MainCarousel.IsEnabled = false;
-            }
-            
 
             string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
             Color headerColor;
@@ -90,35 +68,14 @@ namespace FDPColumn
             header.HorizontalTextAlignment = TextAlignment.Center;
             header.FontSize = screenHeight / 30;
             header.BackgroundColor = headerColor;
-            /* Label header = new Label
-             {
-                 Text = pageNumber.ToString(),
-                 HeightRequest = screenHeight / 20,
-                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                 HorizontalTextAlignment = TextAlignment.Center,
-                 FontSize = screenHeight / 30, //something to test with when moving device resolutions
-                 BackgroundColor = headerColor
-             };*/
 
-            //header.Text = categoryName;
-            /*header.HeightRequest = screenHeight / 20;
-            header.HorizontalOptions = LayoutOptions.FillAndExpand;
-            header.HorizontalTextAlignment = TextAlignment.Center;
-            header.FontSize = screenHeight / 30;
-            header.BackgroundColor = headerColor;*/
-            //image.Source = ImageSource.FromFile(imageString);
+            image.Source = FileImageSource.FromFile("p" + pageNumber + ".jpg");
 
         }
 
-        public void DisableSwipe()
+        public void AlertSomething()
         {
-            MainCarousel.IsEnabled = false;
+            DisplayAlert("title", "works", "working/cancel");
         }
-
-        public void EnableSwipe()
-        {
-            MainCarousel.IsEnabled = true;
-        }
-
     }
 }

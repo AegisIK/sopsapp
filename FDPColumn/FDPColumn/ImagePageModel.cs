@@ -41,24 +41,15 @@ namespace FDPColumn
             }*/
         }
 
-        public void disableSwipe()
+        public void Swiped (SwipeDirection direction)
         {
-            ImagePage currPage;
 
+            ImagePageSwipeAnimated currPage;
 
             int index = Application.Current.MainPage.Navigation.NavigationStack.Count - 1;
 
-            currPage = (ImagePage)Application.Current.MainPage.Navigation.NavigationStack[index];
-            currPage.disableSwipe();
-        }
-        
-        public void enableSwipe()
-        {
-            ImagePage currPage;
-
-            int index = Application.Current.MainPage.Navigation.NavigationStack.Count - 1;
-            currPage = (ImagePage)Application.Current.MainPage.Navigation.NavigationStack[index];
-            currPage.enableSwipe();
+            currPage = (ImagePageSwipeAnimated)Application.Current.MainPage.Navigation.NavigationStack[index];
+            currPage.AlertSomething();
         }
     }
 }

@@ -160,7 +160,7 @@ namespace FDPColumn
 
         async void procedureTapped(object sender, ItemTappedEventArgs e)
         {
-            await Navigation.PushAsync(new ImagePage(dictionary[e.Item.ToString()], categoryPageName));
+            await Navigation.PushAsync(new ImagePageSwipeAnimated(dictionary[e.Item.ToString()], categoryPageName));
         }
 
     }               

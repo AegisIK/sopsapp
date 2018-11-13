@@ -148,7 +148,7 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.987044-pre2" />
     <PackageReference Include="Xamarin.Forms.CarouselView">
       <Version>2.3.0-pre2</Version>
     </PackageReference>

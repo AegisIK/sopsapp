@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FDPColumn.ImagePageSwipeAnimated"
+             xmlns:local="clr-namespace:FDPColumn">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Label x:Name="header"/>
+            </StackLayout>
+            <StackLayout>
+                <ScrollView>
+                    <local:PinchAndPanContainer>
+                        <local:PinchAndPanContainer.Content>
+                            <Image x:Name="image"/>
+                        </local:PinchAndPanContainer.Content>
+                    </local:PinchAndPanContainer>
+                </ScrollView>
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
