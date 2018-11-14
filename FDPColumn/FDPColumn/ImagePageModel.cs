@@ -41,7 +41,7 @@ namespace FDPColumn
             }*/
         }
 
-        public void Swiped (SwipeDirection direction)
+        public void Swiped (double direction)
         {
 
             ImagePageSwipeAnimated currPage;
@@ -49,7 +49,7 @@ namespace FDPColumn
             int index = Application.Current.MainPage.Navigation.NavigationStack.Count - 1;
 
             currPage = (ImagePageSwipeAnimated)Application.Current.MainPage.Navigation.NavigationStack[index];
-            currPage.AlertSomething();
+            currPage.AlertSomething(direction);
         }
     }
 }

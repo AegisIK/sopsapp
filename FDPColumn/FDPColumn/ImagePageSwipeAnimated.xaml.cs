@@ -73,9 +73,9 @@ namespace FDPColumn
 
         }
 
-        public void AlertSomething()
+        public void AlertSomething(double direction)
         {
-            DisplayAlert("title", "works", "working/cancel");
+            DisplayAlert("title", direction.ToString(), "working/cancel");
         }
     }
 }

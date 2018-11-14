@@ -85,16 +85,22 @@ namespace FDPColumn
         {
             if (Content.Scale == 1)
             {
-                if(e.TotalX > 100)
+                double newX = 12;
+                switch(e.StatusType)
                 {
-                    model.Swiped(SwipeDirection.Right);
-                    return;
-                }  
-            }
+                    case GestureStatus.Running:
+                        newX = e.TotalX;
+                        break;
+                    case GestureStatus.Completed:
+                            model.Swiped(newX);
 
+                        break;
+                }
+            }
             switch (e.StatusType)
             {
                 case GestureStatus.Running:
+
                     // Translate and ensure we don't pan beyond the wrapped user interface element bounds.
                     double newX = (e.TotalX * Scale) + xOffset;
                     double newY = (e.TotalY * Scale) + yOffset;
@@ -147,15 +153,23 @@ namespace FDPColumn
 
                     Content.TranslationX = newX;
                     Content.TranslationY = newY;
+
                     break;
 
+
                 case GestureStatus.Completed:
+
                     // Store the translation applied during the pan
                     xOffset = Content.TranslationX;
                     yOffset = Content.TranslationY;
+
+
                     break;
             }
+
         }
 
     }
+
 }
+
