@@ -14,6 +14,7 @@ namespace FDPColumn
         double xOffset = 0;
         double yOffset = 0;
 
+        double swipeX = 12;
         ScreenMetrics metrics = new ScreenMetrics();
 
         ImagePageModel model = new ImagePageModel();
@@ -85,17 +86,18 @@ namespace FDPColumn
         {
             if (Content.Scale == 1)
             {
-                double newX = 12;
+                
                 switch(e.StatusType)
                 {
                     case GestureStatus.Running:
-                        newX = e.TotalX;
+                        swipeX = e.TotalX;
                         break;
                     case GestureStatus.Completed:
-                            model.Swiped(newX);
-
+                        model.Swiped(swipeX);
                         break;
+                        
                 }
+                return;
             }
             switch (e.StatusType)
             {

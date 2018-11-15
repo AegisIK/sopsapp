@@ -73,9 +73,12 @@ namespace FDPColumn
 
         }
 
-        public void AlertSomething(double direction)
+        public void AlertSomething(double swipeX)
         {
-            DisplayAlert("title", direction.ToString(), "working/cancel");
+            if(swipeX > 100)
+            {
+                DisplayAlert("title", "something happeened", swipeX.ToString());
+            }
         }
     }
 }

@@ -27,7 +27,7 @@ namespace FDPColumn
             var metrics = DeviceDisplay.ScreenMetrics;//xamarin essentials may not work for lower level api's.
             double screenHeight = metrics.Height;
             ImagePageModel model = new ImagePageModel();
-            MainCarousel.ItemsSource = model.All;
+            //MainCarousel.ItemsSource = model.All;
             
 
             
