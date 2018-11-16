@@ -17,6 +17,7 @@ namespace FDPColumn
         {
             InitializeComponent();
 
+
             NavigationPage.SetHasNavigationBar(this, false);
             var metrics = DeviceDisplay.ScreenMetrics;//xamarin essentials may not work for lower level api's.
             double screenHeight = metrics.Height;
@@ -78,6 +79,12 @@ namespace FDPColumn
             if(swipeX > 100)
             {
                 DisplayAlert("title", "something happeened", swipeX.ToString());
+
+
+
+                var image = new Image { Source = "picture.png" };
+
+
             }
         }
     }
