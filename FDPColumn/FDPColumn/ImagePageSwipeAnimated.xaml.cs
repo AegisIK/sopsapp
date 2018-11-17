@@ -13,11 +13,59 @@ namespace FDPColumn
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ImagePageSwipeAnimated : ContentPage
     {
+        int currentPageNumber;
+
+
+        int currentImageCounter = 1;
         public ImagePageSwipeAnimated(int pageNumber, string categoryName)
         {
             InitializeComponent();
 
+            currentPageNumber = pageNumber; // create pageNumber accessible throughout the code
+            Setup(categoryName);
+            
 
+            image1.Source = FileImageSource.FromFile("p" + pageNumber + ".jpg");
+
+
+
+        }
+
+        public async void AlertSomething(double swipeX)
+        {
+            
+            if(swipeX > 100)
+            {
+                await DisplayAlert("title", "something happeened", swipeX.ToString());
+                int test = currentPageNumber + 1;
+                
+                switch(currentImageCounter)
+                {
+                    case (1):
+                        /*image2.Source = FileImageSource.FromFile("p" + yeet + ".jpg");
+                        List<Task> transition = new List<Task>();
+                        transition.Add(image1.TranslateTo(-360, image1.TranslationY));
+                        transition.Add(image2.TranslateTo(0, image2.TranslationY));*/
+                        //await Task.WhenAll(transition);
+                        break;
+                    case (2):
+
+                        break;
+                    case (3):
+
+                        break;
+                }
+                
+
+                
+
+
+
+            }
+        }
+
+        void Setup(string categoryName)
+        {
             NavigationPage.SetHasNavigationBar(this, false);
             var metrics = DeviceDisplay.ScreenMetrics;//xamarin essentials may not work for lower level api's.
             double screenHeight = metrics.Height;
@@ -69,23 +117,6 @@ namespace FDPColumn
             header.HorizontalTextAlignment = TextAlignment.Center;
             header.FontSize = screenHeight / 30;
             header.BackgroundColor = headerColor;
-
-            image.Source = FileImageSource.FromFile("p" + pageNumber + ".jpg");
-
-        }
-
-        public void AlertSomething(double swipeX)
-        {
-            if(swipeX > 100)
-            {
-                DisplayAlert("title", "something happeened", swipeX.ToString());
-
-
-
-                var image = new Image { Source = "picture.png" };
-
-
-            }
         }
     }
 }
