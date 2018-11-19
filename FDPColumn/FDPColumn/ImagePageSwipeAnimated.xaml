@@ -4,28 +4,32 @@
              x:Class="FDPColumn.ImagePageSwipeAnimated"
              xmlns:local="clr-namespace:FDPColumn">
     <ContentPage.Content>
-        <StackLayout>
+        <ScrollView Orientation="Vertical">
             <StackLayout>
-                <Label x:Name="header"/>
+                <!--<StackLayout>
+                    <Label x:Name="header"/>
+                </StackLayout>-->
+                <StackLayout>
+                    <ScrollView x:Name="view1">
+                        <local:PinchAndPanContainer x:Name="container">
+                            <local:PinchAndPanContainer.Content>
+                                <Image x:Name="image1"/>
+                            </local:PinchAndPanContainer.Content>
+                        </local:PinchAndPanContainer>
+                    </ScrollView>
+                    <ScrollView x:Name="view2" TranslationX="1000" TranslationY="0">
+                        <local:PinchAndPanContainer>
+                            <local:PinchAndPanContainer.Content>
+                                <Image x:Name="image2"/>
+                            </local:PinchAndPanContainer.Content>
+                        </local:PinchAndPanContainer>
+                    </ScrollView>
+                </StackLayout>
+
+
             </StackLayout>
-            <StackLayout>
-                <ScrollView x:Name="view1">
-                    <local:PinchAndPanContainer x:Name="container">
-                        <local:PinchAndPanContainer.Content>
-                            <Image x:Name="image1"/>
-                        </local:PinchAndPanContainer.Content>
-                    </local:PinchAndPanContainer>
-                </ScrollView>
-                <ScrollView x:Name="view2" TranslationX="500" TranslationY="0">
-                    
-                </ScrollView>
-                <ScrollView x:Name="view3" TranslationX="-500" TranslationY="0">
-
-                </ScrollView>
-            </StackLayout>
-
-
-        </StackLayout>
+        </ScrollView>
+        
 
     </ContentPage.Content>
 </ContentPage>
