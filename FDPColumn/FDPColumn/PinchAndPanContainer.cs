@@ -116,7 +116,7 @@ namespace FDPColumn
                     if (canMoveX)
                     {
                         double minX = (width - (metrics.Width / 2)) * -1;
-                        double maxX = Math.Min(metrics.Width / 2, width / 2);
+                        double maxX = Math.Min(metrics.Width / 2, width / 2);//double maxX = Math.Min(metrics.Width / 2, width / 2);
 
                         if (newX < minX)
                         {
