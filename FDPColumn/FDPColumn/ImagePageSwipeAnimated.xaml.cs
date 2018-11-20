@@ -42,10 +42,10 @@ namespace FDPColumn
                 switch(currentImageCounter)
                 {
                     case (1):
-                        image2.Source = FileImageSource.FromFile("p" + test.ToString() + ".jpg");
+                        //image2.Source = FileImageSource.FromFile("p" + test.ToString() + ".jpg");
                         List<Task> transition = new List<Task>();
-                        transition.Add(view1.TranslateTo(-1000, view1.TranslationY,500));
-                        transition.Add(view2.TranslateTo(0, view1.TranslationY, 600));
+                        transition.Add(view1.TranslateTo(-1000, view1.TranslationY));
+                        transition.Add(view2.TranslateTo(0, view2.TranslationY));
                         await Task.WhenAll(transition);
 
                         break;
@@ -71,7 +71,7 @@ namespace FDPColumn
             var metrics = DeviceDisplay.ScreenMetrics;//xamarin essentials may not work for lower level api's.
             double screenHeight = metrics.Height;
 
-            /*string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
+            string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
             Color headerColor;
             #region check categoryName
 
@@ -117,7 +117,7 @@ namespace FDPColumn
             header.HorizontalOptions = LayoutOptions.FillAndExpand;
             header.HorizontalTextAlignment = TextAlignment.Center;
             header.FontSize = screenHeight / 30;
-            header.BackgroundColor = headerColor;*/
+            header.BackgroundColor = headerColor;
         }
     }
 }
