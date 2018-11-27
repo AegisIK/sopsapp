@@ -23,10 +23,9 @@ namespace FDPColumn
 
             currentPageNumber = pageNumber; // create pageNumber accessible throughout the code
             Setup(categoryName);
-            
 
-            image1.Source = FileImageSource.FromFile("p" + pageNumber + ".jpg");
-
+            List<string> mylist = new List<string>(new string[] { "p1.jpg", "p2.jpg", "p3.jpg", "p4.jpg" });
+            view.ItemsSource = mylist;
 
 
         }
@@ -34,35 +33,6 @@ namespace FDPColumn
         public async void AlertSomething(double swipeX)
         {
             
-            if(swipeX > 100)
-            {
-                await DisplayAlert("title", "something happeened", swipeX.ToString());
-                int test = currentPageNumber + 1;
-                
-                switch(currentImageCounter)
-                {
-                    case (1):
-                        //image2.Source = FileImageSource.FromFile("p" + test.ToString() + ".jpg");
-                        List<Task> transition = new List<Task>();
-                        transition.Add(view1.TranslateTo(-1000, view1.TranslationY));
-                        transition.Add(view2.TranslateTo(0, view2.TranslationY));
-                        await Task.WhenAll(transition);
-
-                        break;
-                    case (2):
-
-                        break;
-                    case (3):
-
-                        break;
-                }
-                
-
-                
-
-
-
-            }
         }
 
         void Setup(string categoryName)
