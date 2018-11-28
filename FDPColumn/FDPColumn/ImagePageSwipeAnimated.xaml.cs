@@ -16,7 +16,6 @@ namespace FDPColumn
         int currentPageNumber;
 
 
-        int currentImageCounter = 1;
         public ImagePageSwipeAnimated(int pageNumber, string categoryName)
         {
             InitializeComponent();
@@ -24,15 +23,26 @@ namespace FDPColumn
             currentPageNumber = pageNumber; // create pageNumber accessible throughout the code
             Setup(categoryName);
 
-            List<string> mylist = new List<string>(new string[] { "p1.jpg", "p2.jpg", "p3.jpg", "p4.jpg" });
-            view.ItemsSource = mylist;
+            List<string> pageList = new List<string>(new string[] { "p1.jpg"});
+            for (int i = 1; i <= 113; i++)
+            {
+                pageList.Add("p" + i + ".jpg");
+            }
+            view.ItemsSource = pageList;
 
 
         }
 
-        public async void AlertSomething(double swipeX)
+        public void CarouselSwipeController(bool zoomedIn)
         {
-            
+            if (zoomedIn)
+            {
+                view.IsSwipeEnabled = false;
+            }
+            else
+            {
+                view.IsSwipeEnabled = true;
+            }
         }
 
         void Setup(string categoryName)
@@ -41,7 +51,7 @@ namespace FDPColumn
             var metrics = DeviceDisplay.ScreenMetrics;//xamarin essentials may not work for lower level api's.
             double screenHeight = metrics.Height;
 
-            /*string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
+            string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
             Color headerColor;
             #region check categoryName
 
@@ -87,7 +97,12 @@ namespace FDPColumn
             header.HorizontalOptions = LayoutOptions.FillAndExpand;
             header.HorizontalTextAlignment = TextAlignment.Center;
             header.FontSize = screenHeight / 30;
-            header.BackgroundColor = headerColor;*/
+            header.BackgroundColor = headerColor;
+
+            row0.Height = screenHeight / 20;
+
+            view.ShowIndicators = false;
+            view.ShowArrows = false;
         }
     }
 }

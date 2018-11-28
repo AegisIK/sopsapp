@@ -15,7 +15,7 @@ namespace FDPColumn
         {
         }
 
-        public void Swiped (double swipeX)
+        public void ImageZoomedIn (bool zoomedIn)
         {
 
             ImagePageSwipeAnimated currPage;
@@ -23,7 +23,8 @@ namespace FDPColumn
             int index = Application.Current.MainPage.Navigation.NavigationStack.Count - 1;
 
             currPage = (ImagePageSwipeAnimated)Application.Current.MainPage.Navigation.NavigationStack[index];
-            currPage.AlertSomething(swipeX);
+
+            currPage.CarouselSwipeController(zoomedIn);
         }
     }
 }
