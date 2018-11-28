@@ -4,25 +4,19 @@
              x:Class="FDPColumn.ImagePageSwipeAnimated"
              xmlns:local="clr-namespace:FDPColumn"
              xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions">
-    <ContentPage.Content>
 
-        <StackLayout>
-            <Label x:Name="header"/>
-            <controls:CarouselViewControl x:Name="view">
-                <controls:CarouselViewControl.ItemTemplate>
-                    <DataTemplate>
-                        <local:PinchAndPanContainer>
-                            <local:PinchAndPanContainer.Content>
-                                <Image Source="{Binding .}"/>
-                            </local:PinchAndPanContainer.Content>
-                        </local:PinchAndPanContainer>
-                    </DataTemplate>
-                </controls:CarouselViewControl.ItemTemplate>
-            </controls:CarouselViewControl>
-        </StackLayout>
+        <controls:CarouselViewControl x:Name="view">
+            <controls:CarouselViewControl.ItemTemplate>
+                <DataTemplate>
+                    <local:PinchAndPanContainer>
+                        <local:PinchAndPanContainer.Content>
+                            <Image Source="{Binding .}"/>
+                        </local:PinchAndPanContainer.Content>
+                    </local:PinchAndPanContainer>
+                </DataTemplate>
+            </controls:CarouselViewControl.ItemTemplate>
+        </controls:CarouselViewControl>
 
+    
 
-
-
-    </ContentPage.Content>
 </ContentPage>
