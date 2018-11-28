@@ -2,34 +2,24 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FDPColumn.ImagePageSwipeAnimated"
-             xmlns:local="clr-namespace:FDPColumn">
+             xmlns:local="clr-namespace:FDPColumn"
+             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions">
     <ContentPage.Content>
-        <ScrollView Orientation="Vertical">
-            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
 
-                <!--<Label x:Name="header"/>-->
-
-                <StackLayout Orientation="Horizontal">
-                    <ScrollView x:Name="view1">
+        <StackLayout>
+            <Label x:Name="header"/>
+            <controls:CarouselViewControl x:Name="view">
+                <controls:CarouselViewControl.ItemTemplate>
+                    <DataTemplate>
                         <local:PinchAndPanContainer>
                             <local:PinchAndPanContainer.Content>
-                                <Image x:Name="image1"/>
+                                <Image Source="{Binding .}"/>
                             </local:PinchAndPanContainer.Content>
                         </local:PinchAndPanContainer>
-                    </ScrollView>
-                    <ScrollView x:Name="view2" TranslationX="360" BackgroundColor="Green">
-                        <local:PinchAndPanContainer>
-                            <local:PinchAndPanContainer.Content>
-                                <Image x:Name="image2" />
-                            </local:PinchAndPanContainer.Content>
-                        </local:PinchAndPanContainer>
-                    </ScrollView>
-                </StackLayout>
-
-
-            </StackLayout>
-        </ScrollView>
-        
+                    </DataTemplate>
+                </controls:CarouselViewControl.ItemTemplate>
+            </controls:CarouselViewControl>
+        </StackLayout>
 
 
 

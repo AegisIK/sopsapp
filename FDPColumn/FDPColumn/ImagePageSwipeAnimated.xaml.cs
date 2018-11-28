@@ -14,21 +14,18 @@ namespace FDPColumn
     public partial class ImagePageSwipeAnimated : ContentPage
     {
         int currentPageNumber;
-        ScreenMetrics metrics = DeviceDisplay.ScreenMetrics;//xamarin essentials may not work for lower level api's.
+
 
         int currentImageCounter = 1;
         public ImagePageSwipeAnimated(int pageNumber, string categoryName)
         {
             InitializeComponent();
 
-            
-
             currentPageNumber = pageNumber; // create pageNumber accessible throughout the code
             Setup(categoryName);
-            
 
-            image1.Source = FileImageSource.FromFile("p" + pageNumber + ".jpg");
-
+            List<string> mylist = new List<string>(new string[] { "p1.jpg", "p2.jpg", "p3.jpg", "p4.jpg" });
+            view.ItemsSource = mylist;
 
 
         }
@@ -36,47 +33,13 @@ namespace FDPColumn
         public async void AlertSomething(double swipeX)
         {
             
-            if(swipeX > 100)
-            {
-                await DisplayAlert("title", "something happeened", swipeX.ToString());
-                int test = currentPageNumber + 1;
-                
-                switch(currentImageCounter)
-                {
-                    case (1):
-                        double xDim1 = view1.Width;
-                        double yDim1 = view1.Height;
-                        double xDim2 = view2.Width;
-                        double yDim2 = view2.Height;
-                        image2.Source = FileImageSource.FromFile("p" + test.ToString() + ".jpg");
-                        List<Task> transition = new List<Task>();
-                        transition.Add(view1.TranslateTo(-360, view1.TranslationY));
-                        transition.Add(view2.TranslateTo(0, view2.TranslationY));
-                        await Task.WhenAll(transition);
-
-                        view1.WidthRequest = 0;
-                        break;
-                    case (2):
-
-                        break;
-                    case (3):
-
-                        break;
-                }
-                
-
-                
-
-
-
-            }
         }
 
         void Setup(string categoryName)
         {
             NavigationPage.SetHasNavigationBar(this, false);
-            
-            /*double screenHeight = metrics.Height;
+            var metrics = DeviceDisplay.ScreenMetrics;//xamarin essentials may not work for lower level api's.
+            double screenHeight = metrics.Height;
 
             string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
             Color headerColor;
@@ -124,7 +87,7 @@ namespace FDPColumn
             header.HorizontalOptions = LayoutOptions.FillAndExpand;
             header.HorizontalTextAlignment = TextAlignment.Center;
             header.FontSize = screenHeight / 30;
-            header.BackgroundColor = headerColor;*/
+            header.BackgroundColor = headerColor;
         }
     }
 }
