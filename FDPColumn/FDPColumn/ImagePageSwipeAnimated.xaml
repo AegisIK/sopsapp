@@ -4,29 +4,32 @@
              x:Class="FDPColumn.ImagePageSwipeAnimated"
              xmlns:local="clr-namespace:FDPColumn">
     <ContentPage.Content>
+        <ScrollView Orientation="Vertical">
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
 
-        <StackLayout x:Name="stack">
+                <!--<Label x:Name="header"/>-->
 
-                <Label x:Name="header"/>
+                <StackLayout Orientation="Horizontal">
+                    <ScrollView x:Name="view1">
+                        <local:PinchAndPanContainer>
+                            <local:PinchAndPanContainer.Content>
+                                <Image x:Name="image1"/>
+                            </local:PinchAndPanContainer.Content>
+                        </local:PinchAndPanContainer>
+                    </ScrollView>
+                    <ScrollView x:Name="view2" TranslationX="360" BackgroundColor="Green">
+                        <local:PinchAndPanContainer>
+                            <local:PinchAndPanContainer.Content>
+                                <Image x:Name="image2" />
+                            </local:PinchAndPanContainer.Content>
+                        </local:PinchAndPanContainer>
+                    </ScrollView>
+                </StackLayout>
 
-            <StackLayout Orientation="Horizontal">
-                <ScrollView x:Name="view1">
-                    <local:PinchAndPanContainer>
-                        <local:PinchAndPanContainer.Content>
-                            <Image x:Name="image1"/>
-                        </local:PinchAndPanContainer.Content>
-                    </local:PinchAndPanContainer>
-                </ScrollView>
-                <!--<ScrollView x:Name="view2" TranslationX="360" BackgroundColor="Green">
-                    <local:PinchAndPanContainer>
-                        <local:PinchAndPanContainer.Content>
-                            <Image x:Name="image2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                        </local:PinchAndPanContainer.Content>
-                    </local:PinchAndPanContainer>
-                </ScrollView>-->
-                <Label x:Name="view2" BackgroundColor="Green" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" TranslationX="500" Text="I like pie"></Label>
+
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
+        
 
 
 
