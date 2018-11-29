@@ -23,7 +23,7 @@ namespace FDPColumn
             currentPageNumber = pageNumber; // create pageNumber accessible throughout the code
             Setup(categoryName);
 
-            List<string> pageList = new List<string>(new string[] { "p1.jpg"});
+            List<string> pageList = new List<string>();
             for (int i = 1; i <= 113; i++)
             {
                 pageList.Add("p" + i + ".jpg");

@@ -15,11 +15,13 @@
         <controls:CarouselViewControl x:Name="view" Grid.Row="1">
             <controls:CarouselViewControl.ItemTemplate>
                 <DataTemplate>
-                    <local:PinchAndPanContainer>
-                        <local:PinchAndPanContainer.Content>
-                            <Image Source="{Binding .}"/>
-                        </local:PinchAndPanContainer.Content>
-                    </local:PinchAndPanContainer>
+                    <ScrollView>
+                        <local:PinchAndPanContainer>
+                            <local:PinchAndPanContainer.Content>
+                                <Image Source="{Binding .}"/>
+                            </local:PinchAndPanContainer.Content>
+                        </local:PinchAndPanContainer>
+                    </ScrollView>
                 </DataTemplate>
             </controls:CarouselViewControl.ItemTemplate>
         </controls:CarouselViewControl>
