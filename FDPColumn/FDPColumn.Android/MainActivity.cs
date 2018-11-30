@@ -23,6 +23,7 @@ namespace FDPColumn.Droid
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             CarouselViewRenderer.Init();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
             LoadApplication(new App());
         }
 

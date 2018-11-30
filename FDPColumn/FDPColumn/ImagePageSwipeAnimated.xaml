@@ -3,22 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FDPColumn.ImagePageSwipeAnimated"
              xmlns:local="clr-namespace:FDPColumn"
-             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions">
+             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition x:Name="row0"/>
             <RowDefinition x:Name="row1"/>
         </Grid.RowDefinitions>
-        
-        
-        <Label x:Name="header" Grid.Row="0"/>
-        <controls:CarouselViewControl x:Name="view" Grid.Row="1">
+
+
+       <Label x:Name="header" Grid.Row="0"/>
+        <controls:CarouselViewControl x:Name="view" InterPageSpacing="10" Grid.Row="1">
             <controls:CarouselViewControl.ItemTemplate>
                 <DataTemplate>
                     <ScrollView>
-                        <local:PinchAndPanContainer>
+                        <local:PinchAndPanContainer HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <local:PinchAndPanContainer.Content>
-                                <Image Source="{Binding .}"/>
+                                <ffimageloading:CachedImage Source="{Binding .}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"></ffimageloading:CachedImage>
                             </local:PinchAndPanContainer.Content>
                         </local:PinchAndPanContainer>
                     </ScrollView>
@@ -27,7 +28,7 @@
         </controls:CarouselViewControl>
 
     </Grid>
-        
+
     
 
 </ContentPage>

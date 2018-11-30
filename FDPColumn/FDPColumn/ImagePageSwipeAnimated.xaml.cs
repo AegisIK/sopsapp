@@ -13,14 +13,12 @@ namespace FDPColumn
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ImagePageSwipeAnimated : ContentPage
     {
-        int currentPageNumber;
 
 
         public ImagePageSwipeAnimated(int pageNumber, string categoryName)
         {
             InitializeComponent();
 
-            currentPageNumber = pageNumber; // create pageNumber accessible throughout the code
             Setup(categoryName);
 
             List<string> pageList = new List<string>();
@@ -28,6 +26,7 @@ namespace FDPColumn
             {
                 pageList.Add("p" + i + ".jpg");
             }
+            view.Position = pageNumber;
             view.ItemsSource = pageList;
 
 
@@ -52,7 +51,7 @@ namespace FDPColumn
             double screenHeight = metrics.Height;
 
             string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
-            Color headerColor;
+           /* Color headerColor;
             #region check categoryName
 
 
@@ -99,7 +98,7 @@ namespace FDPColumn
             header.FontSize = screenHeight / 30;
             header.BackgroundColor = headerColor;
 
-            row0.Height = screenHeight / 20;
+            row0.Height = screenHeight / 20;*/
 
             view.ShowIndicators = false;
             view.ShowArrows = false;

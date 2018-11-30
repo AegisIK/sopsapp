@@ -14,11 +14,10 @@ namespace FDPColumn
         double xOffset = 0;
         double yOffset = 0;
 
-        double swipeX = 12;
         ScreenMetrics metrics = new ScreenMetrics();
 
         ImagePageModel model = new ImagePageModel();
-
+        
         public PinchAndPanContainer()
         {
             PinchGestureRecognizer pinchGesture = new PinchGestureRecognizer();
@@ -41,6 +40,7 @@ namespace FDPColumn
                 Content.AnchorY = 0;
 
                 model.ImageZoomedIn(true);
+                
             }
 
             if (e.Status == GestureStatus.Running)
