@@ -32,6 +32,14 @@ namespace FDPColumn
 
         }
 
+        protected override void OnSizeAllocated(double width, double height)
+        {
+            base.OnSizeAllocated(width, height);
+            App.ScreenHeight = height;
+            App.ScreenWidth = width;
+            
+        }
+
         public void CarouselSwipeController(bool zoomedIn)
         {
             if (zoomedIn)
@@ -51,7 +59,7 @@ namespace FDPColumn
             double screenHeight = metrics.Height;
 
             string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
-           /* Color headerColor;
+            Color headerColor;
             #region check categoryName
 
 
@@ -98,7 +106,7 @@ namespace FDPColumn
             header.FontSize = screenHeight / 30;
             header.BackgroundColor = headerColor;
 
-            row0.Height = screenHeight / 20;*/
+            row0.Height = screenHeight / 20;
 
             view.ShowIndicators = false;
             view.ShowArrows = false;

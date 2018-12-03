@@ -16,13 +16,11 @@
         <controls:CarouselViewControl x:Name="view" InterPageSpacing="10" Grid.Row="1">
             <controls:CarouselViewControl.ItemTemplate>
                 <DataTemplate>
-                    <ScrollView>
-                        <local:PinchAndPanContainer HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <local:PinchAndPanContainer.Content>
-                                <ffimageloading:CachedImage Source="{Binding .}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"></ffimageloading:CachedImage>
-                            </local:PinchAndPanContainer.Content>
-                        </local:PinchAndPanContainer>
-                    </ScrollView>
+                    <local:PinchAndPanContainer HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Green">
+                        <local:PinchAndPanContainer.Content>
+                            <ffimageloading:CachedImage Source="{Binding .}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit"></ffimageloading:CachedImage>
+                        </local:PinchAndPanContainer.Content>
+                    </local:PinchAndPanContainer>
                 </DataTemplate>
             </controls:CarouselViewControl.ItemTemplate>
         </controls:CarouselViewControl>

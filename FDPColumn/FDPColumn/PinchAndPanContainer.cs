@@ -14,7 +14,6 @@ namespace FDPColumn
         double xOffset = 0;
         double yOffset = 0;
 
-        ScreenMetrics metrics = new ScreenMetrics();
 
         ImagePageModel model = new ImagePageModel();
         
@@ -106,13 +105,15 @@ namespace FDPColumn
                     double width = (Content.Width * Content.Scale);
                     double height = (Content.Height * Content.Scale);
 
-                    bool canMoveX = width > metrics.Width;//something to do with the massive space right of the picture
-                    bool canMoveY = height > metrics.Height;
+                    bool canMoveX = width > App.ScreenWidth;//something to do with the massive space right of the picture
+                    bool canMoveY = height > App.ScreenHeight;
+
+                    // In the Below Code we r Pinching  the Image for the Particular Corner with MoveX and MoveY  interface    element bounds.
 
                     if (canMoveX)
                     {
-                        double minX = (width - (metrics.Width / 2)) * -1;
-                        double maxX = Math.Min(metrics.Width / 2, width / 2);//double maxX = Math.Min(metrics.Width / 2, width / 2);
+                        double minX = (width - (App.ScreenWidth / 2)) * -1;
+                        double maxX = Math.Min(App.ScreenWidth / 2, width / 2);//double maxX = Math.Min(metrics.Width / 2, width / 2);
 
                         if (newX < minX)
                         {
@@ -131,8 +132,8 @@ namespace FDPColumn
 
                     if (canMoveY)
                     {
-                        double minY = (height - (metrics.Height / 2)) * -1;
-                        double maxY = Math.Min(metrics.Height / 2, height / 2);
+                        double minY = (height - (App.ScreenHeight / 2)) * -1;
+                        double maxY = Math.Min(App.ScreenHeight / 2, height / 2);
 
                         if (newY < minY)
                         {
