@@ -32,12 +32,27 @@ namespace FDPColumn
 
         }
 
+        private double width = 0;
+        private double height = 0;
+
         protected override void OnSizeAllocated(double width, double height)
         {
             base.OnSizeAllocated(width, height);
             App.ScreenHeight = height;
             App.ScreenWidth = width;
-            
+
+            if(!Equals(this.width, width) || !Equals(this.height, height))
+            {
+                this.width = width;
+                this.height = height;
+
+                //reconfigure layout if android
+                if (Device.RuntimePlatform == Device.Android)
+                {
+                    view.Orientation = CarouselView.FormsPlugin.Abstractions.CarouselViewOrientation.Vertical;
+                    view.Orientation = CarouselView.FormsPlugin.Abstractions.CarouselViewOrientation.Horizontal;
+                }
+            }
         }
 
         public void CarouselSwipeController(bool zoomedIn)

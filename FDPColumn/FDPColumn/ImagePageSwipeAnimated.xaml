@@ -11,22 +11,26 @@
             <RowDefinition x:Name="row1"/>
         </Grid.RowDefinitions>
 
-
-       <Label x:Name="header" Grid.Row="0"/>
+        <Label x:Name="header" Grid.Row="0"/>
         <controls:CarouselViewControl x:Name="view" InterPageSpacing="10" Grid.Row="1">
             <controls:CarouselViewControl.ItemTemplate>
                 <DataTemplate>
-                    <local:PinchAndPanContainer HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Green">
-                        <local:PinchAndPanContainer.Content>
-                            <ffimageloading:CachedImage Source="{Binding .}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit"></ffimageloading:CachedImage>
-                        </local:PinchAndPanContainer.Content>
-                    </local:PinchAndPanContainer>
+                    <ScrollView>
+                        <local:PinchAndPanContainer>
+                            <local:PinchAndPanContainer.Content>
+                                <ffimageloading:CachedImage Source="{Binding .}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit"></ffimageloading:CachedImage>
+                            </local:PinchAndPanContainer.Content>
+                        </local:PinchAndPanContainer>
+                    </ScrollView>
+                    
                 </DataTemplate>
             </controls:CarouselViewControl.ItemTemplate>
         </controls:CarouselViewControl>
 
+
+
     </Grid>
 
-    
+
 
 </ContentPage>
