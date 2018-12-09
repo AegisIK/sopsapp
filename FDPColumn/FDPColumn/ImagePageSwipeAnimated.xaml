@@ -21,8 +21,8 @@
                                 <ffimageloading:CachedImage Source="{Binding .}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit"></ffimageloading:CachedImage>
                             </local:PinchAndPanContainer.Content>
                         </local:PinchAndPanContainer>
+
                     </ScrollView>
-                    
                 </DataTemplate>
             </controls:CarouselViewControl.ItemTemplate>
         </controls:CarouselViewControl>
