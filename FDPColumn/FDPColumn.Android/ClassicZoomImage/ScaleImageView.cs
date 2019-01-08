@@ -14,7 +14,7 @@ using FFImageLoading.Forms.Droid;
 
 namespace FDPColumn.Droid
 {
-    /*public class ScaleImageViewGestureDetector : GestureDetector.SimpleOnGestureListener
+    public class ScaleImageViewGestureDetector : GestureDetector.SimpleOnGestureListener
     {
         private readonly ScaleImageView m_ScaleImageView;
         public ScaleImageViewGestureDetector(ScaleImageView imageView)
@@ -33,7 +33,7 @@ namespace FDPColumn.Droid
             m_ScaleImageView.Cutting();
             return true;
         }
-    }*/
+    }
 
     public class ScaleImageView : ImageView, View.IOnTouchListener
     {
