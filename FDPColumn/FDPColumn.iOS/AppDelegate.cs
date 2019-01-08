@@ -25,7 +25,6 @@ namespace FDPColumn.iOS
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
             CarouselViewRenderer.Init();
-            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             return base.FinishedLaunching(app, options);
         }
     }

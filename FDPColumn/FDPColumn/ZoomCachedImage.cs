@@ -1,0 +1,14 @@
+﻿using FFImageLoading.Forms;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+using Xamarin.Forms;
+
+namespace FDPColumn
+{
+    public class ZoomCachedImage : CachedImage
+    {
+
+    }
+}
