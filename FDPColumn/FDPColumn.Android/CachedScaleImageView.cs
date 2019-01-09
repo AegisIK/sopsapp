@@ -61,7 +61,7 @@ namespace FDPColumn.Droid
         public CachedScaleImageView(Context context, IAttributeSet attrs) : base(context, attrs)
         {
             m_Context = context;
-
+            this.Initialize();
         }
 
         public ZoomCachedImage zoomCachedImage { get; set; }
@@ -69,7 +69,7 @@ namespace FDPColumn.Droid
         public override void SetImageBitmap(Bitmap bm)
         {
             base.SetImageBitmap(bm);
-
+            this.Initialize();
         }
 
         private void Initialize()
