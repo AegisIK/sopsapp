@@ -21,7 +21,7 @@ namespace FDPColumn
             //Create the listview and populate it
             #region create listview
             NavigationPage.SetHasNavigationBar(this, false);
-            var metrics = DeviceDisplay.ScreenMetrics;
+            var metrics = DeviceDisplay.MainDisplayInfo;
             double screenHeight = metrics.Height;
 
             string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
@@ -40,37 +40,43 @@ namespace FDPColumn
             {
                 procedures = CategoryClasses.apndx.components;
                 headerColor = MainPage.apndxLblColor;
-                
+                dictionary = DictionaryClasses.apndxDictionary.dictionary;
             }
             else if (myText == labelNames[2])
             {
                 procedures = CategoryClasses.card.components;
                 headerColor = MainPage.cardLblColor;
+                dictionary = DictionaryClasses.cardDictionary.dictionary;
             }
             else if (myText == labelNames[3])
             {
                 procedures = CategoryClasses.ob.components;
                 headerColor = MainPage.obLblColor;
+                dictionary = DictionaryClasses.obDictionary.dictionary;
             }
             else if (myText == labelNames[4])
             {
                 procedures = CategoryClasses.trauma.components;
                 headerColor = MainPage.traumaLblColor;
+                dictionary = DictionaryClasses.traumaDictionary.dictionary;
             }
             else if (myText == labelNames[5])
             {
                 procedures = CategoryClasses.peds.components;
                 headerColor = MainPage.pedsLblColor;
+                dictionary = DictionaryClasses.pedsDictionary.dictionary;
             }
             else if (myText == labelNames[6])
             {
                 procedures = CategoryClasses.resp.components;
                 headerColor = MainPage.respLblColor;
+                dictionary = DictionaryClasses.respDictionary.dictionary;
             }
             else if (myText == labelNames[7])
             {
                 procedures = CategoryClasses.med.components;
                 headerColor = MainPage.medLblColor;
+                dictionary = DictionaryClasses.medDictionary.dictionary;
             }
             else
             { return; }
@@ -136,7 +142,7 @@ namespace FDPColumn
                 })
                };
 
-            listView.ItemSelected += (s, e) => procedureTapped(s, e);
+            listView.ItemTapped += (s, e) => procedureTapped(s, e);
             // Build the page.
             this.Content = new StackLayout
             {
@@ -152,9 +158,9 @@ namespace FDPColumn
             
         }
 
-        async void procedureTapped(object sender, SelectedItemChangedEventArgs e)
+        async void procedureTapped(object sender, ItemTappedEventArgs e)
         {
-            await Navigation.PushAsync(new ImagePage(dictionary[e.SelectedItem.ToString()]));
+            await Navigation.PushAsync(new ImagePageSwipeAnimated(dictionary[e.Item.ToString()], categoryPageName));
         }
 
     }               

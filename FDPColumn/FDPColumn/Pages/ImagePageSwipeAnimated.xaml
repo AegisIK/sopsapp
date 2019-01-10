@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FDPColumn.ImagePageSwipeAnimated"
+             xmlns:local="clr-namespace:FDPColumn"
+             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="row0"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="header" Grid.Row="0"/>
+        <controls:CarouselViewControl x:Name="view" InterPageSpacing="10" Grid.Row="1">
+            <controls:CarouselViewControl.ItemTemplate>
+                <DataTemplate>
+                    <!--<StackLayout>
+                        <local:ZoomImage x:Name="{Binding .}"
+                            Source="{Binding .}"
+                         VerticalOptions="FillAndExpand"
+                         HorizontalOptions="FillAndExpand"
+                         ScrollEnabled="True"
+                         DoubleTapToZoomEnabled="False"
+                         ZoomEnabled="True"
+                         Aspect="AspectFill"/>
+                    </StackLayout>-->
+                    <!--<StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <local:PinchAndPanContainer VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <ffimageloading:CachedImage x:Name="image" Aspect="AspectFill" Source="{Binding .}"/>
+                            </local:PinchAndPanContainer>
+                        </StackLayout>-->
+
+                    <!--<local:ZoomCachedImage Source="{Binding .}"/>-->
+
+                    <local:ZoomCachedImage Source="{Binding .}"
+                         VerticalOptions="FillAndExpand"
+                         HorizontalOptions="FillAndExpand"
+                         ScrollEnabled="True"
+                         DoubleTapToZoomEnabled="False"
+                         ZoomEnabled="True"
+                         Aspect="AspectFill"/>                       
+                </DataTemplate>
+            </controls:CarouselViewControl.ItemTemplate>
+        </controls:CarouselViewControl>
+
+
+
+    </Grid>
+
+
+
+</ContentPage>
