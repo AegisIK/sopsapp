@@ -30,11 +30,12 @@ namespace FDPColumn
             //view.ItemsSource = pageList;
 
             List<string> numbers = new List<string>();
-            for (int i = 1; i < 51; i++)
+            for (int i = 1; i < 114; i++)
             {
                 numbers.Add("p" + i + ".jpg");
             }
             view.ItemsSource = numbers;
+            view.Position = pageNumber;
         }
 
         private double width = 0;
