@@ -39,7 +39,7 @@
                          ScrollEnabled="True"
                          DoubleTapToZoomEnabled="False"
                          ZoomEnabled="True"
-                         Aspect="AspectFill"/>                       
+                         Aspect="AspectFit"/>                       
                 </DataTemplate>
             </controls:CarouselViewControl.ItemTemplate>
         </controls:CarouselViewControl>
