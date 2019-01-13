@@ -58,8 +58,9 @@ namespace FDPColumn.Droid
         private bool m_IsScaling;
         private GestureDetector m_GestureDetector;
 
-        ImagePageModel model = new ImagePageModel();
 
+        ImagePageModel model = new ImagePageModel();
+        private double _initialScale;
         public CachedScaleImageView(Context context, IAttributeSet attrs) : base(context, attrs)
         {
             m_Context = context;
@@ -83,6 +84,7 @@ namespace FDPColumn.Droid
                 m_IntrinsicWidth = Drawable.IntrinsicWidth;
                 m_IntrinsicHeight = Drawable.IntrinsicHeight;
                 this.SetOnTouchListener(this);
+                _initialScale = Scale;
             }
 
             m_GestureDetector = new GestureDetector(m_Context, new CachedScaleImageViewGestureDetector(this));
@@ -95,7 +97,7 @@ namespace FDPColumn.Droid
             m_Height = b - t;
 
             ZoomToAspect();
-
+            
             return base.SetFrame(l, t, r, b);
         }
 
@@ -199,8 +201,6 @@ namespace FDPColumn.Droid
             ImageMatrix = m_Matrix;
 
             zoomCachedImage.CurrentZoom = Scale;
-            model.ImageZoomedIn(scale != 1);
-                
         }
 
         public void Cutting()

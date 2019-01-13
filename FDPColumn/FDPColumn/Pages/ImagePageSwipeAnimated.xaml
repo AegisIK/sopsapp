@@ -12,9 +12,9 @@
         </Grid.RowDefinitions>
 
         <Label x:Name="header" Grid.Row="0"/>
-        <!--<controls:CarouselViewControl x:Name="view" InterPageSpacing="10" Grid.Row="1">
+        <controls:CarouselViewControl x:Name="view" InterPageSpacing="10" Grid.Row="1">
             <controls:CarouselViewControl.ItemTemplate>
-                <DataTemplate>-->
+                <DataTemplate>
                     <!--<StackLayout>
                         <local:ZoomImage x:Name="{Binding .}"
                             Source="{Binding .}"
@@ -33,18 +33,16 @@
 
                     <!--<local:ZoomCachedImage Source="{Binding .}"/>-->
 
-                    <local:ZoomCachedImage Source="p99.jpg"
+                    <local:ZoomCachedImage Source="{Binding .}"
                          VerticalOptions="FillAndExpand"
                          HorizontalOptions="FillAndExpand"
                          ScrollEnabled="True"
                          DoubleTapToZoomEnabled="False"
                          ZoomEnabled="True"
-                         Aspect="AspectFit"
-                         x:Name="yoink"
-                         Grid.Row="1"/>
-                    <!--</DataTemplate>
+                         Aspect="AspectFit"/>                       
+                </DataTemplate>
             </controls:CarouselViewControl.ItemTemplate>
-        </controls:CarouselViewControl>-->
+        </controls:CarouselViewControl>
 
 
 
