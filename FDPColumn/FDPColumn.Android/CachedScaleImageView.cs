@@ -58,6 +58,8 @@ namespace FDPColumn.Droid
         private bool m_IsScaling;
         private GestureDetector m_GestureDetector;
 
+        ImagePageModel model = new ImagePageModel();
+
         public CachedScaleImageView(Context context, IAttributeSet attrs) : base(context, attrs)
         {
             m_Context = context;
@@ -197,6 +199,8 @@ namespace FDPColumn.Droid
             ImageMatrix = m_Matrix;
 
             zoomCachedImage.CurrentZoom = Scale;
+            model.ImageZoomedIn(scale != 1);
+                
         }
 
         public void Cutting()
