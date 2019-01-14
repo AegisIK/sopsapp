@@ -26,8 +26,8 @@ namespace FDPColumn
             {
                 pageList.Add("p" + i + ".jpg");
             }
-            //view.Position = pageNumber;
-            //view.ItemsSource = pageList;
+            view.Position = pageNumber;
+            view.ItemsSource = pageList;
             
         }
 
@@ -48,8 +48,8 @@ namespace FDPColumn
                 //reconfigure layout if android
                 if (Device.RuntimePlatform == Device.Android)
                 {
-                    // view.Orientation = CarouselView.FormsPlugin.Abstractions.CarouselViewOrientation.Vertical;
-                    //view.Orientation = CarouselView.FormsPlugin.Abstractions.CarouselViewOrientation.Horizontal;
+                    view.Orientation = CarouselView.FormsPlugin.Abstractions.CarouselViewOrientation.Vertical;
+                    view.Orientation = CarouselView.FormsPlugin.Abstractions.CarouselViewOrientation.Horizontal;
                 }
             }
         }
@@ -58,11 +58,11 @@ namespace FDPColumn
         {
             if (zoomedIn)
             {
-                //view.IsSwipeEnabled = false;
+                view.IsSwipeEnabled = false;
             }
             else
             {
-                //view.IsSwipeEnabled = true;
+                view.IsSwipeEnabled = true;
             }
         }
 
@@ -123,8 +123,8 @@ namespace FDPColumn
 
             row0.Height = screenHeight / 20;
 
-            //view.ShowIndicators = false;
-            //view.ShowArrows = false;
+            view.ShowIndicators = false;
+            view.ShowArrows = false;
         }
     }
 }

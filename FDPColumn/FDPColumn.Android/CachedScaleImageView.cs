@@ -60,7 +60,10 @@ namespace FDPColumn.Droid
 
 
         ImagePageModel model = new ImagePageModel();
-        private double _initialScale;
+
+        private SurfaceOrientation _currentRotation = 0;
+
+
         public CachedScaleImageView(Context context, IAttributeSet attrs) : base(context, attrs)
         {
             m_Context = context;
@@ -84,10 +87,23 @@ namespace FDPColumn.Droid
                 m_IntrinsicWidth = Drawable.IntrinsicWidth;
                 m_IntrinsicHeight = Drawable.IntrinsicHeight;
                 this.SetOnTouchListener(this);
-                _initialScale = Scale;
             }
 
             m_GestureDetector = new GestureDetector(m_Context, new CachedScaleImageViewGestureDetector(this));
+            
+
+            Display display = Context.GetSystemService(Context.WindowService).JavaCast<IWindowManager>().DefaultDisplay;
+
+
+            //if(_currentRotation != display.Rotation)
+            //{
+            //    _currentRotation = display.Rotation;
+             ///   if(display.Rotation == (SurfaceOrientation)90)
+             //   {
+                    ZoomTo(m_Scale * 1.4f, m_IntrinsicWidth / 2, m_IntrinsicHeight / 2);
+                    Cutting();
+             //   }
+            //}
         }
 
         protected override bool SetFrame(int l, int t, int r, int b)
@@ -201,6 +217,7 @@ namespace FDPColumn.Droid
             ImageMatrix = m_Matrix;
 
             zoomCachedImage.CurrentZoom = Scale;
+            model.ImageZoomedIn(Scale != _baseScale);
         }
 
         public void Cutting()

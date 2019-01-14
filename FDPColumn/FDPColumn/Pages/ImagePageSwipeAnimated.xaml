@@ -32,14 +32,14 @@
                         </StackLayout>-->
 
                     <!--<local:ZoomCachedImage Source="{Binding .}"/>-->
-
                     <local:ZoomCachedImage Source="{Binding .}"
-                         VerticalOptions="FillAndExpand"
-                         HorizontalOptions="FillAndExpand"
                          ScrollEnabled="True"
                          DoubleTapToZoomEnabled="False"
                          ZoomEnabled="True"
-                         Aspect="AspectFit"/>                       
+                         Aspect="AspectFit"
+                         HorizontalOptions="StartAndExpand"
+                         VerticalOptions="FillAndExpand"/>
+
                 </DataTemplate>
             </controls:CarouselViewControl.ItemTemplate>
         </controls:CarouselViewControl>
