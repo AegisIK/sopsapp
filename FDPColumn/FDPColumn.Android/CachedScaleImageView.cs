@@ -61,7 +61,7 @@ namespace FDPColumn.Droid
 
         ImagePageModel model = new ImagePageModel();
 
-        private SurfaceOrientation _currentRotation = 0;
+        private SurfaceOrientation _currentRotation = SurfaceOrientation.Rotation0;
 
 
         public CachedScaleImageView(Context context, IAttributeSet attrs) : base(context, attrs)
@@ -92,18 +92,7 @@ namespace FDPColumn.Droid
             m_GestureDetector = new GestureDetector(m_Context, new CachedScaleImageViewGestureDetector(this));
             
 
-            Display display = Context.GetSystemService(Context.WindowService).JavaCast<IWindowManager>().DefaultDisplay;
-
-
-            //if(_currentRotation != display.Rotation)
-            //{
-            //    _currentRotation = display.Rotation;
-             ///   if(display.Rotation == (SurfaceOrientation)90)
-             //   {
-                    ZoomTo(m_Scale * 1.4f, m_IntrinsicWidth / 2, m_IntrinsicHeight / 2);
-                    Cutting();
-             //   }
-            //}
+            
         }
 
         protected override bool SetFrame(int l, int t, int r, int b)
@@ -144,17 +133,20 @@ namespace FDPColumn.Droid
 
                 // calculate the scale that should be used
                 var hScale = m_Width / (float)m_IntrinsicWidth;
-                var vScale = m_Height / (float)m_IntrinsicHeight;
-                if (zoomCachedImage.Aspect == Xamarin.Forms.Aspect.AspectFit)
-                    m_Scale = (float)Math.Min(hScale, vScale);
+                //var vScale = m_Height / (float)m_IntrinsicHeight;
+                /*if (zoomCachedImage.Aspect == Xamarin.Forms.Aspect.AspectFit)
+                    m_Scale = Math.Min(hScale, vScale);
                 else
-                    m_Scale = (float)Math.Max(hScale, vScale);
+                    m_Scale = Math.Max(hScale, vScale);*/
+                m_Scale = hScale;
                 // set the min and max scales
                 _baseScale = m_Scale;
                 m_MinScale = _baseScale * (float)zoomCachedImage.MinZoom;
                 m_MaxScale = _baseScale * (float)zoomCachedImage.MaxZoom;
-                // perform the zoom
+                // perform the zoom, todo (orientation)
+                //Display display = Context.GetSystemService(Context.WindowService).JavaCast<IWindowManager>().DefaultDisplay;
                 ZoomTo(m_Scale, m_IntrinsicWidth / 2, m_IntrinsicHeight / 2);
+                m_Matrix.PostTranslate(0, m_IntrinsicHeight/2);
                 Cutting();
             }
         }
