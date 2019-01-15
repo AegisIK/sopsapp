@@ -153,8 +153,6 @@ namespace FDPColumn
                 }
             };
             #endregion
-
-            //Set up swipe recognition in header
             
         }
 

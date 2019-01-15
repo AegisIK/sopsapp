@@ -7,14 +7,16 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
+using CarouselView.FormsPlugin.Abstractions;
 
 namespace FDPColumn
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ImagePageSwipeAnimated : ContentPage
     {
+        private string _categoryName;
 
-
+        string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
         public ImagePageSwipeAnimated(int pageNumber, string categoryName)
         {
             InitializeComponent();
@@ -28,6 +30,8 @@ namespace FDPColumn
             }
             view.Position = pageNumber;
             view.ItemsSource = pageList;
+
+
             
         }
 
@@ -73,7 +77,7 @@ namespace FDPColumn
             var metrics = DeviceDisplay.MainDisplayInfo;
             double screenHeight = metrics.Height;
 
-            string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
+            
             Color headerColor;
             #region check categoryName
 
@@ -114,7 +118,8 @@ namespace FDPColumn
             { return; }
             #endregion
 
-            header.Text = categoryName;
+            _categoryName = categoryName;
+            header.Text = _categoryName;
             header.HeightRequest = screenHeight / 20;
             header.HorizontalOptions = LayoutOptions.FillAndExpand;
             header.HorizontalTextAlignment = TextAlignment.Center;
@@ -125,6 +130,59 @@ namespace FDPColumn
 
             view.ShowIndicators = false;
             view.ShowArrows = false;
+
+            view.PositionSelected += (s, e) => CarouselPositionChanged(s, e);
         }
+
+        void CarouselPositionChanged(object sender, PositionSelectedEventArgs e)
+        {
+            int currentPage = e.NewValue + 1;
+            if (currentPage.ToString() == DictionaryClasses.generalDictionary.dictionary.First().Value.ToString() && _categoryName != labelNames[0])
+            {
+                _categoryName = labelNames[0];
+                header.Text = _categoryName;
+            }
+            else if (currentPage.ToString() == DictionaryClasses.apndxDictionary.dictionary.First().Value.ToString() && _categoryName != labelNames[1])
+            {
+                _categoryName = labelNames[1];
+                header.Text = _categoryName;
+            }
+            else if (currentPage.ToString() == DictionaryClasses.cardDictionary.dictionary.First().Value.ToString() && _categoryName != labelNames[2])
+            {
+                _categoryName = labelNames[2];
+                header.Text = _categoryName;
+            }
+            else if (currentPage.ToString() == DictionaryClasses.obDictionary.dictionary.First().Value.ToString() && _categoryName != labelNames[3])
+            {
+                _categoryName = labelNames[3];
+                header.Text = _categoryName;
+            }
+            else if (currentPage.ToString() == DictionaryClasses.traumaDictionary.dictionary.First().Value.ToString() && _categoryName != labelNames[4])
+            {
+                _categoryName = labelNames[4];
+                header.Text = _categoryName;
+            }
+            else if (currentPage.ToString() == DictionaryClasses.pedsDictionary.dictionary.First().Value.ToString() && _categoryName != labelNames[5])
+            {
+                _categoryName = labelNames[5];
+                header.Text = _categoryName;
+            }
+            else if (currentPage.ToString() == DictionaryClasses.respDictionary.dictionary.First().Value.ToString() && _categoryName != labelNames[6])
+            {
+                _categoryName = labelNames[6];
+                header.Text = _categoryName;
+            }
+            else if (currentPage.ToString() == DictionaryClasses.medDictionary.dictionary.First().Value.ToString() && _categoryName != labelNames[7])
+            {
+                _categoryName = labelNames[7];
+                header.Text = _categoryName;
+            }
+
+        }
+    
+    
+
+        
+        
     }
 }
