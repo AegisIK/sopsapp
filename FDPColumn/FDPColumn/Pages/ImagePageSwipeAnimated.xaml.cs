@@ -15,23 +15,25 @@ namespace FDPColumn
     public partial class ImagePageSwipeAnimated : ContentPage
     {
         private string _categoryName;
+        private int _currentPage;
 
         string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
         public ImagePageSwipeAnimated(int pageNumber, string categoryName)
         {
             InitializeComponent();
 
-            Setup(categoryName);
+            Setup();
+            HeaderControl(categoryName);
 
             List<string> pageList = new List<string>();
-            for (int i = 1; i <= 113; i++)
+            for (int i = 0; i < 114; i++)
             {
                 pageList.Add("p" + i + ".jpg");
             }
             view.Position = pageNumber;
             view.ItemsSource = pageList;
 
-
+            _currentPage = pageNumber;
             
         }
 
@@ -52,8 +54,8 @@ namespace FDPColumn
                 //reconfigure layout if android
                 if (Device.RuntimePlatform == Device.Android)
                 {
-                    view.Orientation = CarouselView.FormsPlugin.Abstractions.CarouselViewOrientation.Vertical;
-                    view.Orientation = CarouselView.FormsPlugin.Abstractions.CarouselViewOrientation.Horizontal;
+                    view.Orientation = CarouselViewOrientation.Vertical;
+                    view.Orientation = CarouselViewOrientation.Horizontal;
                 }
             }
         }
@@ -70,7 +72,7 @@ namespace FDPColumn
             }
         }
 
-        void Setup(string categoryName)
+        void Setup()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             //var metrics = DeviceDisplay.ScreenMetrics;//xamarin essentials may not work for lower level api's.
@@ -78,7 +80,43 @@ namespace FDPColumn
             double screenHeight = metrics.Height;
 
             
+            
+            
+            header.HeightRequest = screenHeight / 20;
+            header.HorizontalOptions = LayoutOptions.FillAndExpand;
+            header.HorizontalTextAlignment = TextAlignment.Center;
+            header.FontSize = screenHeight / 30;
+            
+
+            row0.Height = screenHeight / 20;
+
+            view.ShowIndicators = false;
+            view.ShowArrows = false;
+
+            view.PositionSelected += (s, e) => CarouselPositionChanged(s, e);
+            view.Scrolled += (s, e) => CarouselScrolling(s, e);
+        }
+
+        void CarouselScrolling(object s, CarouselView.FormsPlugin.Abstractions.ScrolledEventArgs e)
+        {
+            if(e.NewValue >= 51 && e.Direction == ScrollDirection.Left)
+            {
+                _currentPage -= 1;
+                
+            }
+            if (e.NewValue < 51 && e.Direction == ScrollDirection.Right)
+            {
+                _currentPage += 1;
+            }
+        }
+
+        void HeaderControl(string categoryName)
+        {
+            header.Text = categoryName;
             Color headerColor;
+
+            _categoryName = categoryName;
+
             #region check categoryName
 
 
@@ -118,67 +156,67 @@ namespace FDPColumn
             { return; }
             #endregion
 
-            _categoryName = categoryName;
-            header.Text = _categoryName;
-            header.HeightRequest = screenHeight / 20;
-            header.HorizontalOptions = LayoutOptions.FillAndExpand;
-            header.HorizontalTextAlignment = TextAlignment.Center;
-            header.FontSize = screenHeight / 30;
             header.BackgroundColor = headerColor;
-
-            row0.Height = screenHeight / 20;
-
-            view.ShowIndicators = false;
-            view.ShowArrows = false;
-
-            view.PositionSelected += (s, e) => CarouselPositionChanged(s, e);
         }
 
         void CarouselPositionChanged(object sender, PositionSelectedEventArgs e)
         {
-            int currentPage = e.NewValue + 1;
-            if (currentPage.ToString() == DictionaryClasses.generalDictionary.dictionary.First().Value.ToString() && _categoryName != labelNames[0])
+            _currentPage = e.NewValue;
+            int currentPage = e.NewValue;
+            if (currentPage.ToString() == DictionaryClasses.generalDictionary.dictionary.First().Value.ToString() || currentPage.ToString() == DictionaryClasses.generalDictionary.dictionary.Last().Value.ToString() && _categoryName != labelNames[0])
             {
                 _categoryName = labelNames[0];
-                header.Text = _categoryName;
+                //header.Text = _categoryName;
+                HeaderControl(_categoryName);
             }
-            else if (currentPage.ToString() == DictionaryClasses.apndxDictionary.dictionary.First().Value.ToString() && _categoryName != labelNames[1])
+            else if (currentPage.ToString() == DictionaryClasses.apndxDictionary.dictionary.First().Value.ToString() || currentPage.ToString() == DictionaryClasses.apndxDictionary.dictionary.Last().Value.ToString() && _categoryName != labelNames[1])
             {
                 _categoryName = labelNames[1];
-                header.Text = _categoryName;
+                //header.Text = _categoryName;
+                HeaderControl(_categoryName);
             }
-            else if (currentPage.ToString() == DictionaryClasses.cardDictionary.dictionary.First().Value.ToString() && _categoryName != labelNames[2])
+            else if (currentPage.ToString() == DictionaryClasses.cardDictionary.dictionary.First().Value.ToString() || currentPage.ToString() == DictionaryClasses.cardDictionary.dictionary.Last().Value.ToString() && _categoryName != labelNames[2])
             {
                 _categoryName = labelNames[2];
-                header.Text = _categoryName;
+                //header.Text = _categoryName;
+                HeaderControl(_categoryName);
             }
-            else if (currentPage.ToString() == DictionaryClasses.obDictionary.dictionary.First().Value.ToString() && _categoryName != labelNames[3])
+            else if (currentPage.ToString() == DictionaryClasses.obDictionary.dictionary.First().Value.ToString() || currentPage.ToString() == DictionaryClasses.obDictionary.dictionary.Last().Value.ToString() && _categoryName != labelNames[3])
             {
                 _categoryName = labelNames[3];
-                header.Text = _categoryName;
+                //header.Text = _categoryName;
+                HeaderControl(_categoryName);
             }
-            else if (currentPage.ToString() == DictionaryClasses.traumaDictionary.dictionary.First().Value.ToString() && _categoryName != labelNames[4])
+            else if (currentPage.ToString() == DictionaryClasses.traumaDictionary.dictionary.First().Value.ToString() || currentPage.ToString() == DictionaryClasses.traumaDictionary.dictionary.Last().Value.ToString() && _categoryName != labelNames[4])
             {
                 _categoryName = labelNames[4];
-                header.Text = _categoryName;
+                //header.Text = _categoryName;
+                HeaderControl(_categoryName);
             }
-            else if (currentPage.ToString() == DictionaryClasses.pedsDictionary.dictionary.First().Value.ToString() && _categoryName != labelNames[5])
+            else if (currentPage.ToString() == DictionaryClasses.pedsDictionary.dictionary.First().Value.ToString() || currentPage.ToString() == DictionaryClasses.pedsDictionary.dictionary.Last().Value.ToString() && _categoryName != labelNames[5])
             {
                 _categoryName = labelNames[5];
-                header.Text = _categoryName;
+                //header.Text = _categoryName;
+                HeaderControl(_categoryName);
             }
-            else if (currentPage.ToString() == DictionaryClasses.respDictionary.dictionary.First().Value.ToString() && _categoryName != labelNames[6])
+            else if (currentPage.ToString() == DictionaryClasses.respDictionary.dictionary.First().Value.ToString() || currentPage.ToString() == DictionaryClasses.respDictionary.dictionary.Last().Value.ToString() && _categoryName != labelNames[6])
             {
                 _categoryName = labelNames[6];
-                header.Text = _categoryName;
+                //header.Text = _categoryName;
+                HeaderControl(_categoryName);
             }
-            else if (currentPage.ToString() == DictionaryClasses.medDictionary.dictionary.First().Value.ToString() && _categoryName != labelNames[7])
+            else if (currentPage.ToString() == DictionaryClasses.medDictionary.dictionary.First().Value.ToString() || currentPage.ToString() == DictionaryClasses.medDictionary.dictionary.Last().Value.ToString() && _categoryName != labelNames[7])
             {
                 _categoryName = labelNames[7];
-                header.Text = _categoryName;
+                //header.Text = _categoryName;
+                HeaderControl(_categoryName);
             }
 
+            
+
         }
+
+        
     
     
 
