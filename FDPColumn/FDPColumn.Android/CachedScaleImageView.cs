@@ -186,7 +186,7 @@ namespace FDPColumn.Droid
             }
         }
 
-        public void ZoomTo(float scale, int x, int y)
+        public void ZoomTo(float scale, float x, float y)
         {
             if (Scale * scale < m_MinScale)
             {
@@ -201,11 +201,12 @@ namespace FDPColumn.Droid
             }
             m_Matrix.PostScale(scale, scale);
             //move to center
-            m_Matrix.PostTranslate(-(m_Width * scale - m_Width) / 2, -(m_Height * scale - m_Height) / 2);
+            //m_Matrix.PostTranslate(-(m_Width * scale - m_Width) / 2, -(m_Height * scale - m_Height) / 2);
 
             //move x and y distance
             m_Matrix.PostTranslate(-(x - (m_Width / 2)) * scale, 0);
             m_Matrix.PostTranslate(0, -(y - (m_Height / 2)) * scale);
+
             ImageMatrix = m_Matrix;
 
             zoomCachedImage.CurrentZoom = Scale;
@@ -256,6 +257,13 @@ namespace FDPColumn.Droid
             return (float)Math.Sqrt(x * x + y * y);
         }
 
+        private Tuple<float, float> MidPoint(float x0, float x1, float y0, float y1)
+        {
+            var x = (x0 - x1) / 2;
+            var y = (y0 - y1) / 2;
+            return Tuple.Create(x, y);
+        }
+
         private float DispDistance()
         {
             return (float)Math.Sqrt(m_Width * m_Width + m_Height * m_Height);
@@ -303,7 +311,12 @@ namespace FDPColumn.Droid
                             m_PreviousDistance = distance;
                             scale += 1;
                             scale = scale * scale;
-                            this.ZoomTo(scale, m_Width / 2, m_Height / 2);
+
+                            var focus = MidPoint(e.GetX(0), e.GetX(1), e.GetY(0), e.GetY(1));
+                            float x = focus.Item1;
+                            float y = focus.Item2;
+                            //this.ZoomTo(scale, m_Width / 2, m_Height / 2);
+                            this.ZoomTo(scale, x, y);
                             this.Cutting();
 
                             handled = true;
