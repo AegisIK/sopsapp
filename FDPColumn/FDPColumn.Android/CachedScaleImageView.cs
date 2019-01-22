@@ -201,9 +201,13 @@ namespace FDPColumn.Droid
             }
             m_Matrix.PostScale(scale, scale);
             //move to center
-            //m_Matrix.PostTranslate(-(m_Width * scale - m_Width) / 2, -(m_Height * scale - m_Height) / 2);
+            m_Matrix.PostTranslate(-(m_Width * scale - m_Width) / 2, -(m_Height * scale - m_Height) / 2);
 
+            
             //move x and y distance
+            //m_Matrix.PostTranslate(-(x - (m_Width / 2)) * scale, 0);
+            //m_Matrix.PostTranslate(0, -(y - (m_Height / 2)) * scale);
+
             m_Matrix.PostTranslate(-(x - (m_Width / 2)) * scale, 0);
             m_Matrix.PostTranslate(0, -(y - (m_Height / 2)) * scale);
 
@@ -229,7 +233,7 @@ namespace FDPColumn.Droid
 
             if (TranslateY < -(height - m_Height))
             {
-                //m_Matrix.PostTranslate(0, -(TranslateY + height - m_Height));
+                m_Matrix.PostTranslate(0, -(TranslateY + height - m_Height));
             }
 
             if (TranslateY > 0)
@@ -259,8 +263,8 @@ namespace FDPColumn.Droid
 
         private Tuple<float, float> MidPoint(float x0, float x1, float y0, float y1)
         {
-            var x = (x0 - x1) / 2;
-            var y = (y0 - y1) / 2;
+            var x = (x0 + x1) / 2;
+            var y = (y0 + y1) / 2;
             return Tuple.Create(x, y);
         }
 
@@ -315,9 +319,9 @@ namespace FDPColumn.Droid
                             var focus = MidPoint(e.GetX(0), e.GetX(1), e.GetY(0), e.GetY(1));
                             float x = focus.Item1;
                             float y = focus.Item2;
-                            //this.ZoomTo(scale, m_Width / 2, m_Height / 2);
-                            this.ZoomTo(scale, x, y);
-                            this.Cutting();
+                            //ZoomTo(scale, m_Width / 2, m_Height / 2);
+                            ZoomTo(scale, x, y); //I changed some stuff from the original, try subtracting the focus and the actual focus point to find distance or somemthing lke that
+                            Cutting();
 
                             handled = true;
                         }
