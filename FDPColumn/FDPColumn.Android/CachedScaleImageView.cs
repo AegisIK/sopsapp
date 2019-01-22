@@ -205,9 +205,6 @@ namespace FDPColumn.Droid
 
             
             //move x and y distance
-            //m_Matrix.PostTranslate(-(x - (m_Width / 2)) * scale, 0);
-            //m_Matrix.PostTranslate(0, -(y - (m_Height / 2)) * scale);
-
             m_Matrix.PostTranslate(-(x - (m_Width / 2)) * scale, 0);
             m_Matrix.PostTranslate(0, -(y - (m_Height / 2)) * scale);
 
@@ -316,11 +313,11 @@ namespace FDPColumn.Droid
                             scale += 1;
                             scale = scale * scale;
 
-                            var focus = MidPoint(e.GetX(0), e.GetX(1), e.GetY(0), e.GetY(1));
-                            float x = focus.Item1;
-                            float y = focus.Item2;
-                            //ZoomTo(scale, m_Width / 2, m_Height / 2);
-                            ZoomTo(scale, x, y); //I changed some stuff from the original, try subtracting the focus and the actual focus point to find distance or somemthing lke that
+                            //var focus = MidPoint(e.GetX(0), e.GetX(1), e.GetY(0), e.GetY(1));
+                            //float x = focus.Item1;
+                            //float y = focus.Item2;
+                            ZoomTo(scale, m_Width / 2, m_Height / 2);
+                            //ZoomTo(scale, x, y); 
                             Cutting();
 
                             handled = true;
