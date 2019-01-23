@@ -10,7 +10,7 @@ using CarouselView.FormsPlugin.Android;
 
 namespace FDPColumn.Droid
 {
-    [Activity(Label = "FDPColumn", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "FDPColumn", Icon = "@drawable/Icon", RoundIcon = "@drawable/roundicon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
