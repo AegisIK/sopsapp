@@ -9,6 +9,7 @@ namespace FDPColumn
 {
     public class ZoomCachedImage : CachedImage
     {
+#pragma warning disable CS0618 // Type or member is obsolete
         public static readonly BindableProperty ZoomEnabledProperty = BindableProperty.Create<ZoomImage, bool>(p => p.ZoomEnabled, true, BindingMode.Default);
 
         public bool ZoomEnabled
@@ -71,4 +72,6 @@ namespace FDPColumn
             set { SetValue(CurrentZoomProperty, value); }
         }
     }
+#pragma warning restore CS0618 // Type or member is obsolete
+
 }
