@@ -205,13 +205,13 @@ namespace FDPColumn.Droid
 
 
             //move x and y distance
-            //m_Matrix.PostTranslate(-(x - (m_Width / 2)) * scale, 0);
-            //m_Matrix.PostTranslate(0, -(y - (m_Height / 2)) * scale);
+            m_Matrix.PostTranslate(-(x - (m_Width / 2)) * scale, 0);
+            m_Matrix.PostTranslate(0, -(y - (m_Height / 2)) * scale);
 
             //mine
-            float dx = x/Scale;
-            float dy = y/Scale;
-            m_Matrix.PostTranslate(-dx, -dy);
+            //float dx = x/Scale;
+            //float dy = y/Scale;
+            //m_Matrix.PostTranslate(-dx, -dy);
 
             ImageMatrix = m_Matrix;
 
@@ -318,12 +318,12 @@ namespace FDPColumn.Droid
                             scale += 1;
                             scale = scale * scale;
 
-                            var focus = MidPoint(e.GetX(0), e.GetX(1), e.GetY(0), e.GetY(1));
-                            float xdist = focus.Item1 - m_Width / 2;
-                            float ydist = focus.Item2 - m_Height / 2;
-                            //ZoomTo(scale, m_Width / 2, m_Height / 2);
-                            ZoomTo(scale, xdist/m_Width, ydist/m_Height); 
-                            //Cutting();
+                            //var focus = MidPoint(e.GetX(0), e.GetX(1), e.GetY(0), e.GetY(1));
+                            //float xdist = focus.Item1 - m_Width / 2;
+                            //float ydist = focus.Item2 - m_Height / 2;
+                            ZoomTo(scale, m_Width / 2, m_Height / 2);
+                            //ZoomTo(scale, xdist/m_Width, ydist/m_Height); 
+                            Cutting();
 
                             handled = true;
                         }
