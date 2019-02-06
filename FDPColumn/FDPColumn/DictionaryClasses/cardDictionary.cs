@@ -9,7 +9,7 @@ namespace FDPColumn.DictionaryClasses
         public static IDictionary<string, int> dictionary = new Dictionary<string, int>()
         {
             {"Acute Coronary Syndromes", 16},
-            {"Bradycardia with a Pulse ", 17},
+            {"Bradycardia with a Pulse", 17},
             {"Narrow QRS Complex Tachycardia", 18},
             {"Wide Complex Tachycardia with a Pulse", 19},
             {"Ventricular fibrillation/pulseless VT", 20},
