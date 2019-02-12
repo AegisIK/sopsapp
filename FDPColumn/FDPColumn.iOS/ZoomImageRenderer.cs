@@ -38,7 +38,7 @@ namespace FDPColumn.iOS
                 _scrollView = new UIScrollView
                 {
                     ClipsToBounds = true,
-                    BackgroundColor = UIColor.Red,
+                    BackgroundColor = UIColor.White,
                     ContentMode = _zoomCachedImage.Aspect.ToUIViewContentMode(),
                     ScrollEnabled = _zoomCachedImage.ScrollEnabled
                 };
