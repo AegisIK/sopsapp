@@ -81,11 +81,21 @@ namespace FDPColumn
 
             
             
+            if(Device.RuntimePlatform == Device.Android)
+            {
+                header.HeightRequest = screenHeight / 20;
+                header.FontSize = screenHeight / 30;
+            }
+            else
+            {
+                header.HeightRequest = screenHeight / 15;
+                header.FontSize = screenHeight / 25;
+            }
             
-            header.HeightRequest = screenHeight / 20;
+            
             header.HorizontalOptions = LayoutOptions.FillAndExpand;
             header.HorizontalTextAlignment = TextAlignment.Center;
-            header.FontSize = screenHeight / 30;
+            
             
 
             row0.Height = screenHeight / 20;

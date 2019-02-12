@@ -5263,26 +5263,26 @@ namespace FDPColumn.Droid
 			// aapt resource value: 0x7f020054
 			public const int avd_hide_password = 2130837588;
 			
+			// aapt resource value: 0x7f0201ab
+			public const int avd_hide_password_1 = 2130837931;
+			
 			// aapt resource value: 0x7f0201ac
-			public const int avd_hide_password_1 = 2130837932;
+			public const int avd_hide_password_2 = 2130837932;
 			
 			// aapt resource value: 0x7f0201ad
-			public const int avd_hide_password_2 = 2130837933;
-			
-			// aapt resource value: 0x7f0201ae
-			public const int avd_hide_password_3 = 2130837934;
+			public const int avd_hide_password_3 = 2130837933;
 			
 			// aapt resource value: 0x7f020055
 			public const int avd_show_password = 2130837589;
 			
+			// aapt resource value: 0x7f0201ae
+			public const int avd_show_password_1 = 2130837934;
+			
 			// aapt resource value: 0x7f0201af
-			public const int avd_show_password_1 = 2130837935;
+			public const int avd_show_password_2 = 2130837935;
 			
 			// aapt resource value: 0x7f0201b0
-			public const int avd_show_password_2 = 2130837936;
-			
-			// aapt resource value: 0x7f0201b1
-			public const int avd_show_password_3 = 2130837937;
+			public const int avd_show_password_3 = 2130837936;
 			
 			// aapt resource value: 0x7f020056
 			public const int design_bottom_navigation_item_background = 2130837590;
@@ -5944,11 +5944,11 @@ namespace FDPColumn.Droid
 			// aapt resource value: 0x7f020131
 			public const int notification_icon_background = 2130837809;
 			
-			// aapt resource value: 0x7f0201aa
-			public const int notification_template_icon_bg = 2130837930;
+			// aapt resource value: 0x7f0201a9
+			public const int notification_template_icon_bg = 2130837929;
 			
-			// aapt resource value: 0x7f0201ab
-			public const int notification_template_icon_low_bg = 2130837931;
+			// aapt resource value: 0x7f0201aa
+			public const int notification_template_icon_low_bg = 2130837930;
 			
 			// aapt resource value: 0x7f020132
 			public const int notification_tile_bg = 2130837810;
@@ -6299,16 +6299,13 @@ namespace FDPColumn.Droid
 			public const int Prev = 2130837925;
 			
 			// aapt resource value: 0x7f0201a6
-			public const int roundicon = 2130837926;
+			public const int tooltip_frame_dark = 2130837926;
 			
 			// aapt resource value: 0x7f0201a7
-			public const int tooltip_frame_dark = 2130837927;
+			public const int tooltip_frame_light = 2130837927;
 			
 			// aapt resource value: 0x7f0201a8
-			public const int tooltip_frame_light = 2130837928;
-			
-			// aapt resource value: 0x7f0201a9
-			public const int Up = 2130837929;
+			public const int Up = 2130837928;
 			
 			static Drawable()
 			{
