@@ -83,7 +83,7 @@ namespace FDPColumn
             labels[7].GestureRecognizers.Add(tgr7);
             #endregion 
 
-        } 
+        }
 
         async void categoryPage(string categoryName)
         {

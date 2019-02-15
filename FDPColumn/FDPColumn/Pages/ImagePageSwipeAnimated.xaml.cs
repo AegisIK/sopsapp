@@ -9,6 +9,7 @@ using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 using CarouselView.FormsPlugin.Abstractions;
 
+
 namespace FDPColumn
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -85,20 +86,21 @@ namespace FDPColumn
             {
                 header.HeightRequest = screenHeight / 20;
                 header.FontSize = screenHeight / 30;
+                row0.Height = screenHeight / 20;
             }
             else
             {
-                header.HeightRequest = screenHeight / 15;
-                header.FontSize = screenHeight / 25;
+                header.FontSize = App.ScreenHeight/16;
+                header.Margin = new Thickness (0, App.ScreenHeight / 50, 0, 0 );
+                row0.Height = App.ScreenHeight / 10;
             }
             
             
             header.HorizontalOptions = LayoutOptions.FillAndExpand;
             header.HorizontalTextAlignment = TextAlignment.Center;
             
-            
 
-            row0.Height = screenHeight / 20;
+
 
             view.ShowIndicators = false;
             view.ShowArrows = false;
@@ -153,7 +155,7 @@ namespace FDPColumn
             { return; }
             #endregion
 
-            header.BackgroundColor = headerColor;
+            headerView.BackgroundColor = headerColor;
         }
 
         void CarouselPositionChanged(object sender, PositionSelectedEventArgs e)

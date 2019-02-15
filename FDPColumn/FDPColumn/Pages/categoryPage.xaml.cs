@@ -82,21 +82,35 @@ namespace FDPColumn
             { return; }
             #endregion
 
+
             Label header = new Label
             {
                 Text = myText,
-                HeightRequest = screenHeight / 20,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 HorizontalTextAlignment = TextAlignment.Center,
-                FontSize = screenHeight/30, //something to test with when moving device resolutions
                 BackgroundColor = headerColor
             };
 
-            
-            
+            if (Device.RuntimePlatform == Device.Android)
+            {
+                header.HeightRequest = screenHeight / 20;
+                header.FontSize = screenHeight / 30;
+                
+            }
+            else
+            {
+                header.HeightRequest = screenHeight / 20;
+                header.FontSize = screenHeight / 35;
+                header.Margin = new Thickness(0, screenHeight / 100, 0, 0); 
+            }
+
+
+
 
             //Checks to see what the inputted myText is, to determine which category was selected and display the corresponding category
-           
+
+
+            
 
             // Create the ListView.
             ListView listView = new ListView
@@ -159,6 +173,13 @@ namespace FDPColumn
         async void procedureTapped(object sender, ItemTappedEventArgs e)
         {
             await Navigation.PushAsync(new ImagePageSwipeAnimated(dictionary[e.Item.ToString()], categoryPageName));
+        }
+
+        protected override void OnSizeAllocated(double width, double height)
+        {
+            base.OnSizeAllocated(width, height);
+            App.ScreenHeight = height;
+            App.ScreenWidth = width;
         }
 
     }               

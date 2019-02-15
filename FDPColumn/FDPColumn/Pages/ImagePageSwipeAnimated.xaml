@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FDPColumn.ImagePageSwipeAnimated"
@@ -10,8 +10,9 @@
             <RowDefinition x:Name="row0"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
-        <Label x:Name="header" Grid.Row="0"/>
+        <ContentView Grid.Row="0" x:Name="headerView">
+            <Label x:Name="header"/>    
+        </ContentView>
         <controls:CarouselViewControl x:Name="view" InterPageSpacing="10" Grid.Row="1">
             <controls:CarouselViewControl.ItemTemplate>
                 <DataTemplate>
