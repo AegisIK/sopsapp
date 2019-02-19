@@ -20,7 +20,7 @@ namespace FDPColumn
             categoryPageName = myText;
             //Create the listview and populate it
             #region create listview
-            NavigationPage.SetHasNavigationBar(this, false);
+
             var metrics = DeviceDisplay.MainDisplayInfo;
             double screenHeight = metrics.Height;
 
@@ -95,13 +95,13 @@ namespace FDPColumn
             {
                 header.HeightRequest = screenHeight / 20;
                 header.FontSize = screenHeight / 30;
-                
+                NavigationPage.SetHasNavigationBar(this, false);
             }
             else
             {
                 header.HeightRequest = screenHeight / 20;
                 header.FontSize = screenHeight / 35;
-                header.Margin = new Thickness(0, screenHeight / 100, 0, 0); 
+                NavigationPage.SetBackButtonTitle(this, "");
             }
 
 
