@@ -18,12 +18,13 @@ namespace FDPColumn
         private string _categoryName;
         private int _currentPage;
 
+
         string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
         public ImagePageSwipeAnimated(int pageNumber, string categoryName)
         {
             InitializeComponent();
 
-            Setup();
+            Setup(categoryName);
             HeaderControl(categoryName);
 
             List<string> pageList = new List<string>();
@@ -73,9 +74,9 @@ namespace FDPColumn
             }
         }
 
-        void Setup()
+        void Setup(string categoryName)
         {
-            NavigationPage.SetHasNavigationBar(this, false);
+
             //var metrics = DeviceDisplay.ScreenMetrics;//xamarin essentials may not work for lower level api's.
             var metrics = DeviceDisplay.MainDisplayInfo;
             double screenHeight = metrics.Height;
@@ -87,19 +88,18 @@ namespace FDPColumn
                 header.HeightRequest = screenHeight / 20;
                 header.FontSize = screenHeight / 30;
                 row0.Height = screenHeight / 20;
+                NavigationPage.SetHasNavigationBar(this, false);
             }
             else
             {
-                header.FontSize = App.ScreenHeight/16;
-                header.Margin = new Thickness (0, App.ScreenHeight / 50, 0, 0 );
-                row0.Height = App.ScreenHeight / 10;
+                row0.Height = 0;
+                header.HeightRequest = 0;
+                Title = categoryName;
             }
             
             
             header.HorizontalOptions = LayoutOptions.FillAndExpand;
             header.HorizontalTextAlignment = TextAlignment.Center;
-            
-
 
 
             view.ShowIndicators = false;
@@ -107,6 +107,7 @@ namespace FDPColumn
 
             view.PositionSelected += (s, e) => CarouselPositionChanged(s, e);
         }
+
 
 
         void HeaderControl(string categoryName)
@@ -156,7 +157,11 @@ namespace FDPColumn
             #endregion
 
             headerView.BackgroundColor = headerColor;
+            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = headerColor;
         }
+
+
+
 
         void CarouselPositionChanged(object sender, PositionSelectedEventArgs e)
         {

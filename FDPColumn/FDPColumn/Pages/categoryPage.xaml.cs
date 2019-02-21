@@ -99,8 +99,11 @@ namespace FDPColumn
             }
             else
             {
-                header.HeightRequest = screenHeight / 20;
+                header.HeightRequest = screenHeight / 20; 
                 header.FontSize = screenHeight / 35;
+                header.HeightRequest = 0;
+                Title = myText;
+                ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = headerColor;
                 NavigationPage.SetBackButtonTitle(this, "");
             }
 
