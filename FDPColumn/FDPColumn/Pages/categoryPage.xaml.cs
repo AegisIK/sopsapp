@@ -14,6 +14,7 @@ namespace FDPColumn
     public partial class categoryPage : ContentPage
     {
         string categoryPageName;
+        Color headerColor;
         IDictionary<string, int> dictionary = new Dictionary<string, int>();
         public categoryPage(string myText)
         {
@@ -26,7 +27,7 @@ namespace FDPColumn
 
             string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
             string[] procedures;
-            Color headerColor;
+
             #region check mytext
 
             
@@ -183,6 +184,15 @@ namespace FDPColumn
             base.OnSizeAllocated(width, height);
             App.ScreenHeight = height;
             App.ScreenWidth = width;
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = headerColor;
+            DisplayAlert("Alert", "Backbutton from ", "OK");
+
+            return true;
+
         }
 
     }               
