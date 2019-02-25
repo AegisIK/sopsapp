@@ -186,14 +186,16 @@ namespace FDPColumn
             App.ScreenWidth = width;
         }
 
-        protected override bool OnBackButtonPressed()
+        protected override void OnAppearing()
         {
-            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = headerColor;
-            DisplayAlert("Alert", "Backbutton from ", "OK");
-
-            return true;
-
+            base.OnAppearing();
+            if(Device.RuntimePlatform == Device.iOS)
+            {
+                ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = headerColor;
+            }
         }
+
+
 
     }               
 }

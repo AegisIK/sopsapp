@@ -64,7 +64,7 @@ namespace FDPColumn.iOS
 
                 this.SetNativeControl(_scrollView);
             }
-            SetNeedsDisplay();
+            //SetNeedsDisplay();
             base.OnElementChanged(e);
         }
 

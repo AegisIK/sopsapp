@@ -59,6 +59,7 @@ namespace FDPColumn
                     view.Orientation = CarouselViewOrientation.Vertical;
                     view.Orientation = CarouselViewOrientation.Horizontal;
                 }
+
             }
         }
 
@@ -112,9 +113,10 @@ namespace FDPColumn
        
 
 
-        void HeaderControl(string categoryName)
+        void HeaderControl(string categoryName) 
         {
             header.Text = categoryName;
+            Title = categoryName;
             Color headerColor;
 
             _categoryName = categoryName;
@@ -217,16 +219,6 @@ namespace FDPColumn
                 //header.Text = _categoryName;
                 HeaderControl(_categoryName);
             }
-
-            
-
-        }
-
-        
-    
-    
-
-        
-        
+        } 
     }
 }
