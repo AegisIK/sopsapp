@@ -64,7 +64,7 @@ namespace FDPColumn.iOS
 
                 this.SetNativeControl(_scrollView);
             }
-            //SetNeedsDisplay();
+            SetNeedsDisplay();
             base.OnElementChanged(e);
         }
 
@@ -180,9 +180,9 @@ namespace FDPColumn.iOS
             else
                 _scrollView.SetZoomScale(_baseScalingFactor, true);
 
-            // if non-zero offset, apply that animated (so it completes after the zoom)
+            // if non-zero offset, apply that animated (so it completes after the zoom) HERE'S THE CULPRIT <---!
             if (widthOffset > 0 || heightOffset > 0)
-                _scrollView.SetContentOffset(new CGPoint(widthOffset, heightOffset), true);
+                _scrollView.SetContentOffset(new CGPoint(widthOffset, heightOffset), false);
 
             // updating the zoom scale resets the pinch gesture recognizer, so set it back to the current zoom enabled state
             _scrollView.PinchGestureRecognizer.Enabled = _zoomCachedImage.ZoomEnabled;
@@ -194,7 +194,7 @@ namespace FDPColumn.iOS
             {
                 base.OnElementPropertyChanged(sender, e);
 
-                if (e.PropertyName == ZoomImage.AspectProperty.PropertyName)
+                if (e.PropertyName == Image.AspectProperty.PropertyName)
                 {
                     SetZoomToAspect();
                 }
@@ -203,10 +203,10 @@ namespace FDPColumn.iOS
                     var scale = (nfloat)_zoomCachedImage.Scale * _baseScalingFactor;
                     _scrollView.SetZoomScale(scale, true);
                 }
-                else if (e.PropertyName == ZoomImage.HeightProperty.PropertyName
-                    || e.PropertyName == ZoomImage.WidthProperty.PropertyName)
+                else if (e.PropertyName == VisualElement.HeightProperty.PropertyName
+                    || e.PropertyName == VisualElement.WidthProperty.PropertyName)
                 {
-                    await Task.Delay(50); // give a short delay for changes to be applied to the frame
+                    await Task.Delay(50); // give a short delay for changes to be applied to the frame THE CULPRIT V2
                     SetZoomToAspect(true); // reapply the current scale
                     SetNeedsDisplay();
                 }
@@ -222,7 +222,7 @@ namespace FDPColumn.iOS
                 {
                     _scrollView.ScrollEnabled = _zoomCachedImage.ScrollEnabled;
                 }
-                else if (e.PropertyName == ZoomImage.SourceProperty.PropertyName)
+                else if (e.PropertyName == Image.SourceProperty.PropertyName)
                 {
                     await AssignImageAsync();
                     SetZoomToAspect();
