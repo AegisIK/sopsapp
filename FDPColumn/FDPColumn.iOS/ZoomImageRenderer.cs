@@ -171,14 +171,14 @@ namespace FDPColumn.iOS
             if (widthDiff < 0)
                 inset.Left = (nfloat)Math.Abs(widthDiff) / 2;
             if (heightDiff < 0)
-                inset.Top = (nfloat)Math.Abs(heightDiff) / 2;
+                inset.Top = (nfloat)(-(Math.Abs(heightDiff) / 2));
             _scrollView.ContentInset = inset;
 
             // set the current scale
             if (reapplyCurrentScale)
-                _scrollView.SetZoomScale(oldScale * _baseScalingFactor, true);
+                _scrollView.SetZoomScale(oldScale * _baseScalingFactor, false);
             else
-                _scrollView.SetZoomScale(_baseScalingFactor, true);
+                _scrollView.SetZoomScale(_baseScalingFactor, false);
 
             // if non-zero offset, apply that animated (so it completes after the zoom) HERE'S THE CULPRIT <---!
             if (widthOffset > 0 || heightOffset > 0)
@@ -201,12 +201,12 @@ namespace FDPColumn.iOS
                 else if (e.PropertyName == ZoomImage.CurrentZoomProperty.PropertyName)
                 {
                     var scale = (nfloat)_zoomCachedImage.Scale * _baseScalingFactor;
-                    _scrollView.SetZoomScale(scale, true);
+                    _scrollView.SetZoomScale(scale, false);
                 }
                 else if (e.PropertyName == VisualElement.HeightProperty.PropertyName
                     || e.PropertyName == VisualElement.WidthProperty.PropertyName)
                 {
-                    await Task.Delay(50); // give a short delay for changes to be applied to the frame THE CULPRIT V2
+                    await Task.Delay(1); // give a short delay for changes to be applied to the frame THE CULPRIT V2
                     SetZoomToAspect(true); // reapply the current scale
                     SetNeedsDisplay();
                 }
