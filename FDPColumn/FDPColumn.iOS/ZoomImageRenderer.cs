@@ -159,7 +159,15 @@ namespace FDPColumn.iOS
             var widthDiff = (_imageView.Bounds.Width * _baseScalingFactor) - _scrollView.Bounds.Width;
             var heightDiff = (_imageView.Bounds.Height * _baseScalingFactor) - _scrollView.Bounds.Height;
             var widthOffset = Math.Max(widthDiff / 2, 0);
-            var heightOffset = Math.Max(heightDiff / 2, 0);
+            double heightOffset;
+            if(UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.LandscapeLeft || UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.LandscapeRight)
+            {
+                heightOffset = 0;
+            }
+            else
+            {
+                heightOffset = Math.Max(heightDiff / 2, 0);
+            }
             // if offset is 0, apply it immediately - it won't change and this allows the inset to be correct
             // logically this is == 0, but since using floats there are warnings about rounding errors
             if (widthOffset < 0.1 && heightOffset < 0.1)
@@ -171,7 +179,8 @@ namespace FDPColumn.iOS
             if (widthDiff < 0)
                 inset.Left = (nfloat)Math.Abs(widthDiff) / 2;
             if (heightDiff < 0)
-                inset.Top = (nfloat)(-(Math.Abs(heightDiff) / 2));
+                inset.Top = 0;
+                //inset.Top = (nfloat)((Math.Abs(heightDiff) / 2));
             _scrollView.ContentInset = inset;
 
             // set the current scale
