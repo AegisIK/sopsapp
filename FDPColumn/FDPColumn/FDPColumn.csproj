@@ -43,4 +43,12 @@
       <Generator>MSBuild:Compile</Generator>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="RendyTestView.cs" />
+    <Compile Remove="ZoomImage.cs" />
+    <Compile Remove="Xamarin Containers\PinchAndPanContainer.cs" />
+    <Compile Remove="Xamarin Containers\PinchPan.cs" />
+    <Compile Remove="ImagePgaeSwipeAnimatedModel.cs" />
+    <Compile Remove="DoubleExtensions.cs" />
+  </ItemGroup>
 </Project>
