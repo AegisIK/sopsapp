@@ -28,11 +28,11 @@ namespace FDPColumn
             HeaderControl(categoryName);
 
             List<string> pageList = new List<string>();
-            for (int i = 0; i < 114; i++)
+            for (int i = 1; i <= 113; i++)
             {
                 pageList.Add("p" + i + ".jpg");
             }
-            view.Position = pageNumber;
+            view.Position = pageNumber - 1;
             view.ItemsSource = pageList;
 
             _currentPage = pageNumber;
@@ -170,7 +170,7 @@ namespace FDPColumn
         void CarouselPositionChanged(object sender, PositionSelectedEventArgs e)
         {
             _currentPage = e.NewValue;
-            int currentPage = e.NewValue;
+            int currentPage = e.NewValue + 1;
             if (currentPage >= DictionaryClasses.generalDictionary.dictionary.First().Value && currentPage <= DictionaryClasses.respDictionary.dictionary.First().Value - 1 && _categoryName != labelNames[0])
             {
                 _categoryName = labelNames[0];

@@ -10,7 +10,7 @@ namespace FDPColumn
     public class ZoomCachedImage : CachedImage
     {
 #pragma warning disable CS0618 // Type or member is obsolete
-        public static readonly BindableProperty ZoomEnabledProperty = BindableProperty.Create<ZoomImage, bool>(p => p.ZoomEnabled, true, BindingMode.Default);
+        public static readonly BindableProperty ZoomEnabledProperty = BindableProperty.Create<ZoomCachedImage, bool>(p => p.ZoomEnabled, true, BindingMode.Default);
 
         public bool ZoomEnabled
         {
@@ -19,7 +19,7 @@ namespace FDPColumn
         }
 
         public static readonly BindableProperty ScrollEnabledProperty =
-            BindableProperty.Create<ZoomImage, bool>(p => p.ScrollEnabled, true, BindingMode.Default);
+            BindableProperty.Create<ZoomCachedImage, bool>(p => p.ScrollEnabled, true, BindingMode.Default);
 
         public bool ScrollEnabled
         {
@@ -28,7 +28,7 @@ namespace FDPColumn
         }
 
         public static readonly BindableProperty DoubleTapToZoomEnabledProperty =
-            BindableProperty.Create<ZoomImage, bool>(p => p.DoubleTapToZoomEnabled, true, BindingMode.Default);
+            BindableProperty.Create<ZoomCachedImage, bool>(p => p.DoubleTapToZoomEnabled, true, BindingMode.Default);
 
         public bool DoubleTapToZoomEnabled
         {
@@ -37,7 +37,7 @@ namespace FDPColumn
         }
 
         public static readonly BindableProperty TapZoomScaleProperty =
-            BindableProperty.Create<ZoomImage, double>(p => p.TapZoomScale, 3.0, BindingMode.Default);
+            BindableProperty.Create<ZoomCachedImage, double>(p => p.TapZoomScale, 3.0, BindingMode.Default);
 
         public double TapZoomScale
         {
@@ -46,7 +46,7 @@ namespace FDPColumn
         }
 
         public static readonly BindableProperty MaxZoomProperty =
-            BindableProperty.Create<ZoomImage, double>(p => p.MaxZoom, 10.0, BindingMode.Default);
+            BindableProperty.Create<ZoomCachedImage, double>(p => p.MaxZoom, 10.0, BindingMode.Default);
 
         public double MaxZoom
         {
@@ -55,7 +55,7 @@ namespace FDPColumn
         }
 
         public static readonly BindableProperty MinZoomProperty =
-            BindableProperty.Create<ZoomImage, double>(p => p.MinZoom, 1, BindingMode.Default);
+            BindableProperty.Create<ZoomCachedImage, double>(p => p.MinZoom, 1, BindingMode.Default);
 
         public double MinZoom
         {
@@ -64,7 +64,7 @@ namespace FDPColumn
         }
 
         public static readonly BindableProperty CurrentZoomProperty =
-            BindableProperty.Create<ZoomImage, double>(p => p.CurrentZoom, 1.0, BindingMode.Default);
+            BindableProperty.Create<ZoomCachedImage, double>(p => p.CurrentZoom, 1.0, BindingMode.Default);
 
         public double CurrentZoom
         {

@@ -207,7 +207,7 @@ namespace FDPColumn.iOS
                 {
                     SetZoomToAspect();
                 }
-                else if (e.PropertyName == ZoomImage.CurrentZoomProperty.PropertyName)
+                else if (e.PropertyName == ZoomCachedImage.CurrentZoomProperty.PropertyName)
                 {
                     var scale = (nfloat)_zoomCachedImage.Scale * _baseScalingFactor;
                     _scrollView.SetZoomScale(scale, false);
@@ -219,15 +219,15 @@ namespace FDPColumn.iOS
                     SetZoomToAspect(true); // reapply the current scale
                     SetNeedsDisplay();
                 }
-                else if (e.PropertyName == ZoomImage.MaxZoomProperty.PropertyName)
+                else if (e.PropertyName == ZoomCachedImage.MaxZoomProperty.PropertyName)
                 {
                     _scrollView.MaximumZoomScale = (nfloat)_zoomCachedImage.MaxZoom * _baseScalingFactor;
                 }
-                else if (e.PropertyName == ZoomImage.MinZoomProperty.PropertyName)
+                else if (e.PropertyName == ZoomCachedImage.MinZoomProperty.PropertyName)
                 {
                     _scrollView.MaximumZoomScale = (nfloat)_zoomCachedImage.MinZoom * _baseScalingFactor;
                 }
-                else if (e.PropertyName == ZoomImage.ScrollEnabledProperty.PropertyName)
+                else if (e.PropertyName == ZoomCachedImage.ScrollEnabledProperty.PropertyName)
                 {
                     _scrollView.ScrollEnabled = _zoomCachedImage.ScrollEnabled;
                 }
@@ -237,7 +237,7 @@ namespace FDPColumn.iOS
                     SetZoomToAspect();
                     SetNeedsDisplay();
                 }
-                else if (e.PropertyName == ZoomImage.ZoomEnabledProperty.PropertyName)
+                else if (e.PropertyName == ZoomCachedImage.ZoomEnabledProperty.PropertyName)
                 {
                     _scrollView.PinchGestureRecognizer.Enabled = _zoomCachedImage.ZoomEnabled;
                     // if zoom is disabled, return to aspect view
