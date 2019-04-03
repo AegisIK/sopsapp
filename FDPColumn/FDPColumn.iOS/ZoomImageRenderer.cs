@@ -151,6 +151,18 @@ namespace FDPColumn.iOS
             }*/
             _baseScalingFactor = wScale;
 
+            if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad)
+            {
+                if(UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.LandscapeLeft || UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.LandscapeRight)
+                {
+                    _baseScalingFactor = wScale;
+                }                    
+                else
+                {
+                    _baseScalingFactor = hScale;
+                }
+            }
+
             // assign the min and max zooms based on the user request and base scaling factor
             _scrollView.MinimumZoomScale = (nfloat)_zoomCachedImage.MinZoom * _baseScalingFactor;
             _scrollView.MaximumZoomScale = (nfloat)_zoomCachedImage.MaxZoom * _baseScalingFactor;
@@ -179,8 +191,10 @@ namespace FDPColumn.iOS
             if (widthDiff < 0)
                 inset.Left = (nfloat)Math.Abs(widthDiff) / 2;
             if (heightDiff < 0)
-                inset.Top = 0;
-                //inset.Top = (nfloat)((Math.Abs(heightDiff) / 2));
+                inset.Top = 45;
+                //inset.Top = (nfloat)((Math.Abs(heightDiff)*3/4));
+                //inset.Top = 0;
+
             _scrollView.ContentInset = inset;
 
             // set the current scale
@@ -196,6 +210,7 @@ namespace FDPColumn.iOS
             // updating the zoom scale resets the pinch gesture recognizer, so set it back to the current zoom enabled state
             _scrollView.PinchGestureRecognizer.Enabled = _zoomCachedImage.ZoomEnabled;
         }
+
 
         protected override async void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
