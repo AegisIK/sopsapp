@@ -136,6 +136,7 @@ namespace FDPColumn.iOS
             var wScale = _scrollView.Frame.Width / _imageView.Image.Size.Width;
             var hScale = _scrollView.Frame.Height / _imageView.Image.Size.Height;
 
+
             // determine the base scaling factor to use based on the requested aspect
             /*switch (_zoomCachedImage.Aspect)
             {
@@ -182,8 +183,10 @@ namespace FDPColumn.iOS
             }
             // if offset is 0, apply it immediately - it won't change and this allows the inset to be correct
             // logically this is == 0, but since using floats there are warnings about rounding errors
-            if (widthOffset < 0.1 && heightOffset < 0.1)
-                _scrollView.ContentOffset = new CGPoint(0, 0);
+            //if (widthOffset < 0.1 && heightOffset < 0.1)
+            if (widthOffset <= float.Epsilon && heightOffset <= float.Epsilon)
+                _scrollView.SetContentOffset(new CGPoint(0, 0), false);
+                //_scrollView.ContentOffset = new CGPoint(0, 0);
 
 
             // center the image in the scroll when image is smaller than the scroll view
@@ -191,10 +194,8 @@ namespace FDPColumn.iOS
             if (widthDiff < 0)
                 inset.Left = (nfloat)Math.Abs(widthDiff) / 2;
             if (heightDiff < 0)
-                inset.Top = 45;
-                //inset.Top = (nfloat)((Math.Abs(heightDiff)*3/4));
+                inset.Top = (nfloat)Math.Abs(heightDiff) / 4;
                 //inset.Top = 0;
-
             _scrollView.ContentInset = inset;
 
             // set the current scale
@@ -227,8 +228,7 @@ namespace FDPColumn.iOS
                     var scale = (nfloat)_zoomCachedImage.Scale * _baseScalingFactor;
                     _scrollView.SetZoomScale(scale, false);
                 }
-                else if (e.PropertyName == VisualElement.HeightProperty.PropertyName
-                    || e.PropertyName == VisualElement.WidthProperty.PropertyName)
+                else if (e.PropertyName == VisualElement.WidthProperty.PropertyName)
                 {
                     await Task.Delay(1); // give a short delay for changes to be applied to the frame THE CULPRIT V2
                     SetZoomToAspect(true); // reapply the current scale
