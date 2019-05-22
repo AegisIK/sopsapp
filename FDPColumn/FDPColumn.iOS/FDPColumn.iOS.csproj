@@ -66,11 +66,10 @@
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignKey>iPhone Developer: Kevin Han (63L374CJQL)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-<MtouchUseLlvm>true</MtouchUseLlvm>
-<MtouchUseThumb>true</MtouchUseThumb>
-<CodesignProvision>SOPs App</CodesignProvision>
+<MtouchLink>SdkOnly</MtouchLink>
+<CodesignProvision>VS: WildCard Development</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
