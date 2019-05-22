@@ -13,6 +13,11 @@ namespace FDPColumn
         {
             InitializeComponent();
 
+            if(Device.RuntimePlatform == Device.iOS)
+            {
+                NavigationPage.SetBackButtonTitle(this, "");
+            }
+
             btnTapSetup();
 
             colorSetup();

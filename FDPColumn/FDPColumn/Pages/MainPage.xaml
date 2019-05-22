@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:FDPColumn"
@@ -26,7 +26,7 @@
         <Label Grid.Row="2" Grid.Column="0" Text="OB" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Large" x:Name="obLbl"/>
         <Label Grid.Row="2" Grid.Column="1" Text="Cardiac" VerticalTextAlignment ="Center" HorizontalTextAlignment="Center" FontSize="Large" x:Name="cardLbl"/>
 
-        <Label Grid.Row="3" Grid.Column="0" Text="Med." VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Large" x:Name="medLbl"/>
+        <Label Grid.Row="3" Grid.Column="0" Text="Med" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Large" x:Name="medLbl"/>
         <Label Grid.Row="3" Grid.Column="1" Text="Trauma" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Large" x:Name="traumaLbl"/>
     </Grid>
 
