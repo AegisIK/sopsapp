@@ -213,7 +213,6 @@ namespace FDPColumn.Droid
             //float dy = y/Scale;
             //m_Matrix.PostTranslate(-dx, -dy);
             ImageMatrix = m_Matrix;
-
             zoomCachedImage.CurrentZoom = Scale;
             model.ImageZoomedIn(Scale != _baseScale);
         }

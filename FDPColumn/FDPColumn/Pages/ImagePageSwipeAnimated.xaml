@@ -39,7 +39,8 @@
                          ZoomEnabled="True"
                          Aspect="AspectFit"
                          HorizontalOptions="StartAndExpand"
-                         VerticalOptions="FillAndExpand"/>
+                         VerticalOptions="FillAndExpand"
+                         DownsampleWidth="5"/>
 
                 </DataTemplate>
             </controls:CarouselViewControl.ItemTemplate>
