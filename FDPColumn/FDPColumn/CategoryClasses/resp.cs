@@ -6,6 +6,6 @@ namespace FDPColumn.CategoryClasses
 {
     public static class resp
     {
-        public static string[] components = new string[5] { "Airway obstruction", "Drug Assisted Intubation", "Allergic Reaction/Anaphylactic Shock", "Asthma/COPD", "Pts w/ tracheostomy (adult or peds)" };
+        public static string[] components = new string[6] { "Airway obstruction", "Advanced airways/DAI", "Allergic Reaction/Anaphylactic Shock", "Asthma/COPD", "Pts w/ tracheostomy/laryngectomy (adult & peds)", "Acute Resp. Disorders (FLU – Pulm. embolism)" };
     }
 }

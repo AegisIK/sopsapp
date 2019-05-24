@@ -69,7 +69,6 @@
     <CodesignKey>iPhone Developer: Kevin Han (63L374CJQL)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
 <MtouchLink>SdkOnly</MtouchLink>
-<CodesignProvision>VS: WildCard Development</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
@@ -160,345 +159,125 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\p80.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p81.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p82.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p83.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p84.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p85.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p86.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p87.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p88.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p89.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p90.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p91.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p92.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p93.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p94.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p95.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p96.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p97.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p98.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p99.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p100.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p101.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p102.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p103.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p104.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p105.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p106.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p107.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p108.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p109.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p110.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p111.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p112.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\p113.jpg" />
+    <Folder Include="Assets.xcassets\Icon.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\p1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p5.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p6.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p7.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p8.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p9.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p10.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p11.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p12.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p13.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p14.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p15.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p16.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p17.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p18.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p19.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p20.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p21.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p22.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p23.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p24.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p25.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p26.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p27.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p28.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p29.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p30.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p31.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p32.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p33.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p34.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p35.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p36.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p37.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p38.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p39.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p40.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p41.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p42.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p43.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p44.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p45.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p46.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p47.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p48.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p49.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p50.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p51.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p52.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p53.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p54.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p55.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p56.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p57.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p58.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p59.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p60.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p61.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p62.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p63.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p64.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p65.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p66.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p67.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p68.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p69.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p70.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p71.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p72.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p73.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p74.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p75.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p76.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p77.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p78.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\p79.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets.xcassets\Icon.imageset\" />
+    <BundleResource Include="Resources\p80.jpg" />
+    <BundleResource Include="Resources\p81.jpg" />
+    <BundleResource Include="Resources\p82.jpg" />
+    <BundleResource Include="Resources\p83.jpg" />
+    <BundleResource Include="Resources\p84.jpg" />
+    <BundleResource Include="Resources\p85.jpg" />
+    <BundleResource Include="Resources\p86.jpg" />
+    <BundleResource Include="Resources\p87.jpg" />
+    <BundleResource Include="Resources\p88.jpg" />
+    <BundleResource Include="Resources\p89.jpg" />
+    <BundleResource Include="Resources\p90.jpg" />
+    <BundleResource Include="Resources\p91.jpg" />
+    <BundleResource Include="Resources\p92.jpg" />
+    <BundleResource Include="Resources\p93.jpg" />
+    <BundleResource Include="Resources\p94.jpg" />
+    <BundleResource Include="Resources\p95.jpg" />
+    <BundleResource Include="Resources\p96.jpg" />
+    <BundleResource Include="Resources\p97.jpg" />
+    <BundleResource Include="Resources\p98.jpg" />
+    <BundleResource Include="Resources\p99.jpg" />
+    <BundleResource Include="Resources\p100.jpg" />
+    <BundleResource Include="Resources\p101.jpg" />
+    <BundleResource Include="Resources\p102.jpg" />
+    <BundleResource Include="Resources\p103.jpg" />
+    <BundleResource Include="Resources\p104.jpg" />
+    <BundleResource Include="Resources\p105.jpg" />
+    <BundleResource Include="Resources\p106.jpg" />
+    <BundleResource Include="Resources\p107.jpg" />
+    <BundleResource Include="Resources\p108.jpg" />
+    <BundleResource Include="Resources\p109.jpg" />
+    <BundleResource Include="Resources\p110.jpg" />
+    <BundleResource Include="Resources\p111.jpg" />
+    <BundleResource Include="Resources\p112.jpg" />
+    <BundleResource Include="Resources\p113.jpg" />
+    <BundleResource Include="Resources\p114.jpg" />
+    <BundleResource Include="Resources\p115.jpg" />
+    <BundleResource Include="Resources\p116.jpg" />
+    <BundleResource Include="Resources\p117.jpg" />
   </ItemGroup>
 </Project>

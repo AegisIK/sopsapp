@@ -8,11 +8,11 @@ namespace FDPColumn.DictionaryClasses
     {
         public static IDictionary<string, int> dictionary = new Dictionary<string, int>()
         {
-            {"Childbirth", 60},
-            {"Newborn and post-partum care", 61},
-            {"Delivery complications", 62},
-            {"Newborn resuscitation", 63},
-            {"OB complications", 64}
+            {"Childbirth", 66},
+            {"Newborn and post-partum care", 67},
+            {"Delivery complications", 68},
+            {"Newborn resuscitation", 69},
+            {"OB complications", 70}
         };
     }
 }

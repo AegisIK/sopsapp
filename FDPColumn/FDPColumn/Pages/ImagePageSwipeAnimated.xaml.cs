@@ -28,7 +28,7 @@ namespace FDPColumn
             HeaderControl(categoryName);
 
             List<string> pageList = new List<string>();
-            for (int i = 1; i <= 113; i++)
+            for (int i = 1; i <= 117; i++)
             {
                 pageList.Add("p" + i + ".jpg");
             }

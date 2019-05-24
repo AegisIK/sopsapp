@@ -8,24 +8,25 @@ namespace FDPColumn.DictionaryClasses
     {
         public static IDictionary<string, int> dictionary = new Dictionary<string, int>()
         {
-            {"Initial trauma care (ITC)/GCS/RTS", 39},
-            {"Triage & transport criteria (table)", 41},
-            {"Cardiac Arrest due to Trauma", 42},
-            {"Conducted electrical weapon (Taser)", 42},
-            {"Burns", 43},
-            {"Chest trauma", 45},
-            {"Eye emergencies / Facial trauma", 46},
-            {"Head trauma", 47},
-            {"Musculoskeletal trauma", 48},
-            {"Spine trauma/Equipment removal guidelines", 49},
-            {"Multiple Patient Incidents", 51},
-            {"START & JumpSTART", 52},
-            {"Hazardous Materials Incidents", 53},
-            {"Chemical Agents", 54},
-            {"Active Shooter Response", 55},
-            {"Widespread disease outbreak", 57},
-            {"Abuse and Maltreatment: Domestic/Sexual/Elder", 58 },
-            {"Trauma in pregnancy", 59}
+            {"Initial trauma care (ITC)/GCS/RTS", 43},
+            {"Triage & transport criteria (table)", 45},
+            {"Cardiac Arrest due to Trauma", 46},
+            {"Conducted electrical weapon (Taser)", 46},
+            {"Burns", 47},
+            {"Chest trauma", 49},
+            {"Eye emergencies / Facial trauma", 50},
+            {"Head trauma", 51},
+            {"Musculoskeletal trauma", 53},
+            {"Spine trauma/Equipment removal guidelines", 54},
+            {"Multiple Patient Incidents", 56},
+            {"START & JumpSTART", 57},
+            {"Hazardous Materials Incidents", 58},
+            {"Chemical Agents", 59},
+            {"Chempack Requests", 60},
+            {"Active Shooter Response", 61},
+            {"Widespread disease outbreak", 63},
+            {"Abuse and Maltreatment: Domestic/Sexual/Elder", 64},
+            {"Trauma in pregnancy", 65}
         };
     }
 }

@@ -8,7 +8,7 @@ namespace FDPColumn.CategoryClasses
     {
 
         public static string[] components = new string[8] {"Introduction", "EMS Scopes of Practice", "General Patient Assessment/IMC",
-                                "Emergency drug alternatives", "OLMC Report/Handover Reports", "Withholding or Withdrawing Resuscitation",
+                                "Pain management / Drug alternatives", "OLMC Report/Handover Reports", "Withholding or Withdrawing Resuscitation",
                                 "Elderly patients", "Extremely obese patients" };
 
 
