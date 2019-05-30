@@ -66,9 +66,10 @@
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Developer: Kevin Han (63L374CJQL)</CodesignKey>
+    <CodesignKey>iPhone Distribution: Northwest Community Hospital Inc (HRFJ44RP7G)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
 <MtouchLink>SdkOnly</MtouchLink>
+<CodesignProvision>SOPs App</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
@@ -91,8 +92,9 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignKey>iPhone Developer: Kevin Han (63L374CJQL)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
