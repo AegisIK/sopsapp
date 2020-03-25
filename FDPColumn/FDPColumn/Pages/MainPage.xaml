@@ -11,6 +11,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -28,6 +29,7 @@
 
         <Label Grid.Row="3" Grid.Column="0" Text="Med" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Large" x:Name="medLbl"/>
         <Label Grid.Row="3" Grid.Column="1" Text="Trauma" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Large" x:Name="traumaLbl"/>
+        <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="COVID19" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Large" x:Name="covidLbl"/>
     </Grid>
 
 </ContentPage>

@@ -31,6 +31,7 @@ namespace FDPColumn
         public static Color traumaLblColor = Color.FromHex("#84EC9D");
         public static Color pedsLblColor = Color.FromHex("#FEEB9A");
         public static Color medLblColor = Color.FromHex("#FF9C71");
+        public static Color covidLblColor = Color.FromHex("#99b5f2");
 
 
         void colorSetup()
@@ -44,13 +45,14 @@ namespace FDPColumn
             traumaLbl.BackgroundColor = traumaLblColor;
             pedsLbl.BackgroundColor = pedsLblColor;
             medLbl.BackgroundColor = medLblColor;
+            covidLbl.BackgroundColor = covidLblColor;
         }
 
         void btnTapSetup()
         {
 
-            Label[] labels = new Label[8] { patManLbl, apndxLbl, cardLbl, obLbl, traumaLbl, pedsLbl, respLbl, medLbl };
-            string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
+            Label[] labels = new Label[9] { patManLbl, apndxLbl, cardLbl, obLbl, traumaLbl, pedsLbl, respLbl, medLbl, covidLbl };
+            string[] labelNames = new string[9] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical", "COVID19"};
 
             //so, I was trying to put this in a for loop, but it wouldnt work, it would attach the last iteration of tap to all of the labels, took me a week, still couldn't figure it out, so
             //now, we're just gonna hard code it and solve it later if I have the time
@@ -86,6 +88,10 @@ namespace FDPColumn
             var tgr7 = new TapGestureRecognizer();
             tgr7.Tapped += (s, e) => categoryPage(labelNames[7]);
             labels[7].GestureRecognizers.Add(tgr7);
+
+            var tgr8 = new TapGestureRecognizer();
+            tgr8.Tapped += (s, e) => categoryPage(labelNames[8]);
+            labels[8].GestureRecognizers.Add(tgr8);
             #endregion 
 
         }
