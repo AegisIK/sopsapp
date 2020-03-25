@@ -322,4 +322,16 @@
     <BundleResource Include="Resources\p116.jpg" />
     <BundleResource Include="Resources\p117.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\p119.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\p120.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\p121.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\p118.jpg" />
+  </ItemGroup>
 </Project>
