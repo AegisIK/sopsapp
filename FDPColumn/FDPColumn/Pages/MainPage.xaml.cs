@@ -31,7 +31,7 @@ namespace FDPColumn
         public static Color traumaLblColor = Color.FromHex("#84EC9D");
         public static Color pedsLblColor = Color.FromHex("#FEEB9A");
         public static Color medLblColor = Color.FromHex("#FF9C71");
-        public static Color covidLblColor = Color.FromHex("#99b5f2");
+        public static Color covidLblColor = Color.FromHex("#99B5F2");
 
 
         void colorSetup()
@@ -89,8 +89,8 @@ namespace FDPColumn
             tgr7.Tapped += (s, e) => categoryPage(labelNames[7]);
             labels[7].GestureRecognizers.Add(tgr7);
 
-            var tgr8 = new TapGestureRecognizer();
-            tgr8.Tapped += (s, e) => categoryPage(labelNames[8]);
+            var tgr8 = new TapGestureRecognizer(); //Inserted covid straight to carousel page information
+            tgr8.Tapped += async (s, e) => await Navigation.PushAsync(new ImagePageSwipeAnimated(118, labelNames[8]));
             labels[8].GestureRecognizers.Add(tgr8);
             #endregion 
 

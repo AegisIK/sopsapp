@@ -178,11 +178,14 @@ namespace FDPColumn.Droid
         {
             if (zoomCachedImage.ZoomEnabled && zoomCachedImage.DoubleTapToZoomEnabled)
             {
-                // if at max, zoom out
-                if ((m_MaxScale - Scale) < 0.1f)
-                    ZoomTo(1 / (float)zoomCachedImage.TapZoomScale, x, y);
-                else
+                // if at any zoom, zoom out
+                if ((Scale - m_MinScale) > 0.1f)
+                    ZoomTo((float)0.0005, x, y);
+                else//if not zoomed at all, zoom in
                     ZoomTo((float)zoomCachedImage.TapZoomScale, x, y);
+                    //ZoomTo(1 / (float)zoomCachedImage.TapZoomScale, x, y);
+                //else
+                //    ZoomTo((float)zoomCachedImage.TapZoomScale, x, y);
             }
         }
 

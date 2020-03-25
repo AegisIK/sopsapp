@@ -35,7 +35,7 @@
                     <!--<local:ZoomCachedImage Source="{Binding .}"/>-->
                     <local:ZoomCachedImage Source="{Binding .}"
                          ScrollEnabled="True"
-                         DoubleTapToZoomEnabled="False"
+                         DoubleTapToZoomEnabled="True"
                          ZoomEnabled="True"
                          Aspect="AspectFit"
                          HorizontalOptions="StartAndExpand"

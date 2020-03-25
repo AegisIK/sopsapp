@@ -19,7 +19,7 @@ namespace FDPColumn
         private int _currentPage;
 
 
-        string[] labelNames = new string[8] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical" };
+        string[] labelNames = new string[9] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical", "COVID19" };
         public ImagePageSwipeAnimated(int pageNumber, string categoryName)
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace FDPColumn
             HeaderControl(categoryName);
 
             List<string> pageList = new List<string>();
-            for (int i = 1; i <= 117; i++)
+            for (int i = 1; i <= 121; i++)
             {
                 pageList.Add("p" + i + ".jpg");
             }
@@ -156,6 +156,10 @@ namespace FDPColumn
             {
                 headerColor = MainPage.medLblColor;
             }
+            else if (categoryName == labelNames[8]) //covid stuff here
+            {
+                headerColor = MainPage.covidLblColor;
+            }
             else
             { return; }
             #endregion
@@ -177,7 +181,7 @@ namespace FDPColumn
                 //header.Text = _categoryName;
                 HeaderControl(_categoryName);
             }
-            else if (currentPage >= DictionaryClasses.apndxDictionary.dictionary.First().Value && _categoryName != labelNames[1])
+            else if (currentPage >= DictionaryClasses.apndxDictionary.dictionary.First().Value && currentPage <= DictionaryClasses.apndxDictionary.dictionary.Last().Value && _categoryName != labelNames[1])//COVID19 edits here. Edits are to make sure that apndx doesn't behave like it's the last section (which it is w/o COVID19)
             {
                 _categoryName = labelNames[1];
                 //header.Text = _categoryName;
@@ -217,6 +221,11 @@ namespace FDPColumn
             {
                 _categoryName = labelNames[7];
                 //header.Text = _categoryName;
+                HeaderControl(_categoryName);
+            }
+            else if (currentPage > DictionaryClasses.apndxDictionary.dictionary.Last().Value && _categoryName != labelNames[8]) //Inserting COVID information here. There will be no covid dictionary class. Just insert covid header info after appendix (the last section)
+            {
+                _categoryName = labelNames[8];
                 HeaderControl(_categoryName);
             }
         } 
