@@ -49,7 +49,7 @@ namespace FDPColumn.iOS
                 // setup the zooming and double tap
                 _scrollView.ViewForZoomingInScrollView += (view) => _imageView;
 
-                _scrollView.AddGestureRecognizer(
+                /*_scrollView.AddGestureRecognizer(
                     new UITapGestureRecognizer((gest) =>
                     {
                         if (_zoomCachedImage.DoubleTapToZoomEnabled)
@@ -59,7 +59,34 @@ namespace FDPColumn.iOS
                         }
                     })
                     { NumberOfTapsRequired = 2 }
-                );
+                );*/
+
+                if(_zoomCachedImage.DoubleTapToZoomEnabled)
+                {
+                    _scrollView.AddGestureRecognizer(
+                        new UITapGestureRecognizer((gest) =>
+                        {
+                            var location = gest.LocationOfTouch(0, _scrollView);
+                            //If we are 100% zoomed out, then zoom in :
+                            if (_scrollView.ZoomScale == _scrollView.MinimumZoomScale)
+                            {
+                                _scrollView.ZoomToRect(GenerateZoomRect(_scrollView, (float)_zoomCachedImage.TapZoomScale, location), true);
+
+                            }
+                            else if(_scrollView.ZoomScale == _scrollView.MaximumZoomScale) //We are 100% zoomed in
+                            {
+                                //Zoom to 50000 scale, if curious as to why that is look at GenerateZoomRect function
+                                _scrollView.ZoomToRect(GenerateZoomRect(_scrollView, (float)50000, location), true);
+                            }
+                            else //If we are not 100% zoomed out, then zoom out
+                            {
+                                _scrollView.ZoomToRect(GenerateZoomRect(_scrollView, (float)0.000005, location), true);
+                            }
+
+                        })
+                        { NumberOfTapsRequired = 2 }
+                    );
+                }
                 _scrollView.PinchGestureRecognizer.Enabled = _zoomCachedImage.ZoomEnabled;
 
                 this.SetNativeControl(_scrollView);
