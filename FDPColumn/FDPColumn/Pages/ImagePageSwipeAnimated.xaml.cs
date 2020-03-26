@@ -105,10 +105,15 @@ namespace FDPColumn
 
             view.ShowIndicators = false;
             view.ShowArrows = false;
-
+            
             view.PositionSelected += (s, e) => CarouselPositionChanged(s, e);
+            view.Scrolled += (s, e) => IsChanging(s, e);
         }
 
+        void IsChanging(object sender, CarouselView.FormsPlugin.Abstractions.ScrolledEventArgs e)
+        {
+            Console.WriteLine("Current swipe animation percentage: " + e.NewValue);
+        }
 
        
 
@@ -116,7 +121,6 @@ namespace FDPColumn
         void HeaderControl(string categoryName) 
         {
             header.Text = categoryName;
-            Title = categoryName;
             Color headerColor;
 
             _categoryName = categoryName;
