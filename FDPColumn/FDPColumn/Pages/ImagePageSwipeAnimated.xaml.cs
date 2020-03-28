@@ -132,7 +132,7 @@ namespace FDPColumn
             {
                 headerColor = MainPage.patManLblColor;
             }
-            else if (categoryName == labelNames[1])
+            else if (categoryName == labelNames[1]) 
             {
                 headerColor = MainPage.apndxLblColor;
             }
