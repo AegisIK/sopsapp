@@ -17,13 +17,13 @@ namespace FDPColumn
     {
         private string _categoryName;
         private int _currentPage;
-
+      
 
         string[] labelNames = new string[9] { "General", "Appendix", "Cardiac", "OB", "Trauma", "PEDS", "Respiratory", "Medical", "COVID19" };
         public ImagePageSwipeAnimated(int pageNumber, string categoryName)
         {
             InitializeComponent();
-
+            
             Setup(categoryName);
             HeaderControl(categoryName);
 
@@ -107,13 +107,31 @@ namespace FDPColumn
             view.ShowArrows = false;
             
             view.PositionSelected += (s, e) => CarouselPositionChanged(s, e);
-            view.Scrolled += (s, e) => IsChanging(s, e);
+            //view.Scrolled += (s, e) => IsChanging(s, e);
         }
 
-        void IsChanging(object sender, CarouselView.FormsPlugin.Abstractions.ScrolledEventArgs e)
+        /*void IsChanging(object sender, CarouselView.FormsPlugin.Abstractions.ScrolledEventArgs e)
         {
-            Console.WriteLine("Current swipe animation percentage: " + e.NewValue);
-        }
+            //Console.WriteLine("Current swipe animation percentage: " + e.NewValue);
+
+            if(e.NewValue == 100)
+			{
+                Console.WriteLine("We've stopped swiping");
+
+                this.FindByName<ZoomCachedImage>("zoomImage").carouselIsSwiping = false;
+			}
+            else if(e.NewValue == 2)
+			{
+                Console.WriteLine("We've stopped swiping");
+                this.FindByName<ZoomCachedImage>("zoomImage").carouselIsSwiping = false;
+
+            }
+            else
+			{
+                Console.WriteLine("We are currently swiping");
+                this.FindByName<ZoomCachedImage>("zoomImage").carouselIsSwiping = true;
+            }
+        }*/
 
        
 
@@ -121,11 +139,12 @@ namespace FDPColumn
         void HeaderControl(string categoryName) 
         {
             header.Text = categoryName;
+            Title = categoryName;
             Color headerColor;
 
             _categoryName = categoryName;
 
-            #region check categoryName
+#region check categoryName
 
 
             if (categoryName == labelNames[0])
@@ -166,9 +185,10 @@ namespace FDPColumn
             }
             else
             { return; }
-            #endregion
+#endregion
 
             headerView.BackgroundColor = headerColor;
+            Console.WriteLine(headerColor.ToString());
             ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = headerColor;
         }
 

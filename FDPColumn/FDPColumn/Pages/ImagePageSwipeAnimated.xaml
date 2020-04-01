@@ -12,7 +12,7 @@
         </Grid.RowDefinitions>
         <ContentView Grid.Row="0" x:Name="headerView">
             <Label x:Name="header"/>    
-        </ContentView>
+        </ContentView> 
         <controls:CarouselViewControl x:Name="view" InterPageSpacing="10" Grid.Row="1">
             <controls:CarouselViewControl.ItemTemplate>
                 <DataTemplate>
@@ -31,12 +31,13 @@
                             <ffimageloading:CachedImage x:Name="image" Aspect="AspectFill" Source="{Binding .}"/>
                             </local:PinchAndPanContainer>
                         </StackLayout>-->
-
+                     
                     <!--<local:ZoomCachedImage Source="{Binding .}"/>-->
-                    <local:ZoomCachedImage Source="{Binding .}"
+                    <local:ZoomCachedImage
+                         Source="{Binding .}"
                          ScrollEnabled="True"
                          DoubleTapToZoomEnabled="True"
-                         ZoomEnabled="True"
+                         ZoomEnabled="True" 
                          Aspect="AspectFit"
                          HorizontalOptions="StartAndExpand"
                          VerticalOptions="FillAndExpand"

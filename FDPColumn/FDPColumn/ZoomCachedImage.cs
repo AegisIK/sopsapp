@@ -71,6 +71,17 @@ namespace FDPColumn
             get { return (double)GetValue(CurrentZoomProperty); }
             set { SetValue(CurrentZoomProperty, value); }
         }
+
+
+        //This boolean allows us to control the back navigation of the IOS app (which must be done on the IOS layer)
+        public static readonly BindableProperty carouselIsSwipingProperty =
+            BindableProperty.Create<ZoomCachedImage, bool>(p => p.carouselIsSwiping, false, BindingMode.Default);
+
+        public bool carouselIsSwiping
+        {
+            get { return (bool)GetValue(carouselIsSwipingProperty); }
+            set { SetValue(carouselIsSwipingProperty, value); }
+        }
     }
 #pragma warning restore CS0618 // Type or member is obsolete
 

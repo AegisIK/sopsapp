@@ -26,10 +26,12 @@ namespace FDPColumn.iOS
         private UIScrollView _scrollView;
         private UIImageView _imageView;
         private nfloat _baseScalingFactor;
+        private bool _isSwiping = false;
 
-        protected override async void OnElementChanged(ElementChangedEventArgs<ZoomCachedImage> e)
+
+        protected override void OnElementChanged(ElementChangedEventArgs<ZoomCachedImage> e)
         {
-            if (this.Control == null && e.NewElement != null)
+            if (Control == null && e.NewElement != null)
             {
                 //setup the control to be a scrollview with an image in it
                 _zoomCachedImage = e.NewElement;
@@ -44,24 +46,12 @@ namespace FDPColumn.iOS
                 };
 
                 //add the image view to it
-                await AssignImageAsync();
+                AssignImage();
                 _scrollView.AddSubview(_imageView);
                 // setup the zooming and double tap
                 _scrollView.ViewForZoomingInScrollView += (view) => _imageView;
 
-                /*_scrollView.AddGestureRecognizer(
-                    new UITapGestureRecognizer((gest) =>
-                    {
-                        if (_zoomCachedImage.DoubleTapToZoomEnabled)
-                        {
-                            var location = gest.LocationOfTouch(0, _scrollView);
-                            _scrollView.ZoomToRect(GenerateZoomRect(_scrollView, (float)_zoomCachedImage.TapZoomScale, location), true);
-                        }
-                    })
-                    { NumberOfTapsRequired = 2 }
-                );*/
-
-                if(_zoomCachedImage.DoubleTapToZoomEnabled)
+                if (_zoomCachedImage.DoubleTapToZoomEnabled)
                 {
                     _scrollView.AddGestureRecognizer(
                         new UITapGestureRecognizer((gest) =>
@@ -73,7 +63,7 @@ namespace FDPColumn.iOS
                                 _scrollView.ZoomToRect(GenerateZoomRect(_scrollView, (float)_zoomCachedImage.TapZoomScale, location), true);
 
                             }
-                            else if(_scrollView.ZoomScale == _scrollView.MaximumZoomScale) //We are 100% zoomed in
+                            else if (_scrollView.ZoomScale == _scrollView.MaximumZoomScale) //We are 100% zoomed in
                             {
                                 //Zoom to 50000 scale, if curious as to why that is look at GenerateZoomRect function
                                 _scrollView.ZoomToRect(GenerateZoomRect(_scrollView, (float)50000, location), true);
@@ -96,14 +86,14 @@ namespace FDPColumn.iOS
         }
 
 
-        private async Task AssignImageAsync()
+        private void AssignImage()
         {
             //reset the scroll or the size and offsets will all be off for the new image(do this before updating the image)
             ResetScrollView();
 
             var fileSource = _zoomCachedImage.Source as FileImageSource;
 
-            try 
+            try
             {
                 //use a file source
                 using (var image = UIImage.FromFile(fileSource.File))
@@ -118,11 +108,11 @@ namespace FDPColumn.iOS
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine($"Error loading image from file {fileSource.File}. Exception: {e.Message}");
             }
-            
+
 
             _imageView.SizeToFit();
             _scrollView.ContentSize = _imageView.Frame.Size;
@@ -244,6 +234,7 @@ namespace FDPColumn.iOS
         {
             try
             {
+                Console.WriteLine(e.PropertyName + " property has changed.");
                 base.OnElementPropertyChanged(sender, e);
 
                 if (e.PropertyName == Image.AspectProperty.PropertyName)
@@ -275,7 +266,7 @@ namespace FDPColumn.iOS
                 }
                 else if (e.PropertyName == Image.SourceProperty.PropertyName)
                 {
-                    await AssignImageAsync();
+                    AssignImage();
                     SetZoomToAspect();
                     SetNeedsDisplay();
                 }
@@ -285,7 +276,24 @@ namespace FDPColumn.iOS
                     // if zoom is disabled, return to aspect view
                     if (!_zoomCachedImage.ZoomEnabled)
                         SetZoomToAspect();
-                }
+                }//Detect if carousel is swiping in order to disable back navigation
+                /*else if (e.PropertyName == ZoomCachedImage.carouselIsSwipingProperty.PropertyName)
+                {
+                    var navctrl = this.ViewController.NavigationController;
+
+                    if (_zoomCachedImage.carouselIsSwiping != _isSwiping && _isSwiping == true)
+                    {
+                        _isSwiping = false;
+                        Console.WriteLine("Enable back nav here.");
+                        navctrl.InteractivePopGestureRecognizer.Enabled = true;
+                    }
+                    else if(_zoomCachedImage.carouselIsSwiping != _isSwiping && _isSwiping == false)
+                    {
+                        _isSwiping = true;
+                        Console.WriteLine("Disable back nav here.");
+                        navctrl.InteractivePopGestureRecognizer.Enabled = false;
+                    }
+                }*/
             }
             catch (Exception ex)
             {

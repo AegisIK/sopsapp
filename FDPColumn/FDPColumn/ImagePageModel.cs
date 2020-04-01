@@ -6,6 +6,7 @@ using System.Linq;
 
 using Xamarin.Forms;
 
+
 namespace FDPColumn
 {
     public class ImagePageModel
